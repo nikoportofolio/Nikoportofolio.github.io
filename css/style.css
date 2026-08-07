@@ -472,3 +472,380 @@ padding:14px 30px;
 }
 
 }
+
+
+/* ==========================================
+   FEATURED PROJECT
+========================================== */
+
+.project-grid{
+    width:90%;
+    max-width:1400px;
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+    gap:35px;
+}
+
+.project-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:25px;
+
+    background:#111;
+
+    cursor:pointer;
+
+    transition:.45s;
+
+    border:1px solid rgba(255,255,255,.08);
+
+}
+
+.project-card:hover{
+
+    transform:translateY(-15px);
+
+    box-shadow:0 25px 60px rgba(0,0,0,.45);
+
+}
+
+.project-card img{
+
+    width:100%;
+
+    height:450px;
+
+    object-fit:cover;
+
+    transition:.6s;
+
+}
+
+.project-card:hover img{
+
+    transform:scale(1.08);
+
+}
+
+.project-info{
+
+    position:absolute;
+
+    bottom:0;
+
+    left:0;
+
+    width:100%;
+
+    padding:30px;
+
+    background:linear-gradient(
+    transparent,
+    rgba(0,0,0,.95)
+    );
+
+}
+
+.project-info h3{
+
+    font-size:30px;
+
+    margin-bottom:10px;
+
+}
+
+.project-info p{
+
+    color:#cfcfcf;
+
+    margin-bottom:25px;
+
+}
+
+.project-info button{
+
+    border:none;
+
+    outline:none;
+
+    padding:13px 28px;
+
+    border-radius:40px;
+
+    cursor:pointer;
+
+    background:#38bdf8;
+
+    color:white;
+
+    font-weight:600;
+
+    transition:.35s;
+
+}
+
+.project-info button:hover{
+
+    background:white;
+
+    color:black;
+
+}
+
+/* ==========================================
+   GALLERY
+========================================== */
+
+.gallery-grid{
+
+    width:92%;
+
+    max-width:1500px;
+
+    margin:auto;
+
+    column-count:3;
+
+    column-gap:20px;
+
+}
+
+.gallery-grid img{
+
+    width:100%;
+
+    margin-bottom:20px;
+
+    border-radius:18px;
+
+    cursor:pointer;
+
+    transition:.45s;
+
+}
+
+.gallery-grid img:hover{
+
+    transform:scale(1.03);
+
+    filter:brightness(110%);
+
+}
+
+/* ==========================================
+   TIMELINE
+========================================== */
+
+.timeline{
+
+    width:85%;
+
+    max-width:1000px;
+
+    margin:auto;
+
+    position:relative;
+
+}
+
+.timeline::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+
+    top:0;
+
+    width:4px;
+
+    height:100%;
+
+    background:#38bdf8;
+
+}
+
+.timeline-item{
+
+    width:45%;
+
+    padding:25px;
+
+    margin-bottom:70px;
+
+    background:#111;
+
+    border-radius:20px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    position:relative;
+
+}
+
+.timeline-item:nth-child(odd){
+
+    margin-right:auto;
+
+}
+
+.timeline-item:nth-child(even){
+
+    margin-left:auto;
+
+}
+
+.timeline-item h3{
+
+    color:#38bdf8;
+
+    margin-bottom:10px;
+
+}
+
+/* ==========================================
+   CONTACT
+========================================== */
+
+#contact{
+
+    text-align:center;
+
+}
+
+#contact p{
+
+    font-size:18px;
+
+    color:#cfcfcf;
+
+    margin:12px 0;
+
+}
+
+footer{
+
+    text-align:center;
+
+    padding:40px;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+    color:#999;
+
+}
+
+/* ==========================================
+   ANIMATION
+========================================== */
+
+.reveal{
+
+    opacity:0;
+
+    transform:translateY(60px);
+
+    transition:1s;
+
+}
+
+.reveal.active{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+/* ==========================================
+   HOVER GLOW
+========================================== */
+
+.card:hover,
+.project-card:hover{
+
+    border-color:#38bdf8;
+
+}
+
+.project-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+
+    transparent,
+
+    rgba(56,189,248,.08)
+
+    );
+
+    opacity:0;
+
+    transition:.45s;
+
+}
+
+.project-card:hover::after{
+
+    opacity:1;
+
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media(max-width:900px){
+
+.gallery-grid{
+
+column-count:2;
+
+}
+
+.timeline::before{
+
+left:25px;
+
+}
+
+.timeline-item{
+
+width:100%;
+
+padding-left:60px;
+
+margin-left:0 !important;
+
+}
+
+}
+
+@media(max-width:600px){
+
+.gallery-grid{
+
+column-count:1;
+
+}
+
+.project-card img{
+
+height:300px;
+
+}
+
+}
+
+
