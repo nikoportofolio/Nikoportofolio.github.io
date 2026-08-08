@@ -1,137 +1,277 @@
-/* ==========================================
-   NIKO JULIANDARUS PORTFOLIO
-   Premium Script v1.0
-========================================== */
+```javascript
+/* =========================================================
+   NIKO JULIANDARUS — PORTFOLIO
+   JAVASCRIPT
+========================================================= */
 
-// ================= LOADER =================
 
-window.addEventListener("load", () => {
+/* =========================================================
+   01. PAGE LOADER
+========================================================= */
+
+window.addEventListener("load", function () {
 
     const loader = document.getElementById("loader");
 
-    loader.style.opacity = "0";
-
-    loader.style.transition = ".8s";
+    if (!loader) return;
 
     setTimeout(() => {
 
-        loader.style.display = "none";
+        loader.classList.add("hide");
 
-    }, 800);
+    }, 500);
 
 });
 
-// ================= NAVBAR =================
 
-const nav = document.querySelector("nav");
+/* =========================================================
+   02. NAVBAR SCROLL EFFECT
+========================================================= */
 
-window.addEventListener("scroll", () => {
+const navbar = document.getElementById("navbar");
 
-    if(window.scrollY > 50){
+window.addEventListener("scroll", function () {
 
-        nav.classList.add("scrolled");
+    if (!navbar) return;
 
-    }else{
+    if (window.scrollY > 50) {
 
-        nav.classList.remove("scrolled");
+        navbar.classList.add("scrolled");
+
+    } else {
+
+        navbar.classList.remove("scrolled");
 
     }
 
-});
+}, { passive: true });
 
-// ================= COUNTER =================
 
-const counters = document.querySelectorAll(".counter");
+/* =========================================================
+   03. MOBILE MENU
+========================================================= */
 
-const speed = 40;
+const menuToggle = document.getElementById("menuToggle");
+const navMenu = document.querySelector(".nav-menu");
 
-const startCounter = () => {
+if (menuToggle && navMenu) {
 
-    counters.forEach(counter => {
+    menuToggle.addEventListener("click", function () {
 
-        const update = () => {
+        navMenu.classList.toggle("open");
 
-            const target = +counter.dataset.target;
+    });
 
-            const current = +counter.innerText;
 
-            const increment = target / speed;
+    // Tutup menu setelah memilih halaman
 
-            if(current < target){
+    const navLinks = navMenu.querySelectorAll("a");
 
-                counter.innerText = Math.ceil(current + increment);
+    navLinks.forEach(link => {
 
-                setTimeout(update,35);
+        link.addEventListener("click", function () {
 
-            }else{
+            navMenu.classList.remove("open");
 
-                counter.innerText = target;
+        });
+
+    });
+
+}
+
+
+/* =========================================================
+   04. SCROLL REVEAL
+========================================================= */
+
+const sections = document.querySelectorAll(".section");
+
+const revealObserver = new IntersectionObserver(
+
+    function (entries) {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+                entry.target.classList.add("visible");
+
+                revealObserver.unobserve(entry.target);
 
             }
 
+        });
+
+    },
+
+    {
+        threshold: 0.12
+    }
+
+);
+
+
+sections.forEach(section => {
+
+    revealObserver.observe(section);
+
+});
+
+
+/* =========================================================
+   05. SKILL ANIMATION
+========================================================= */
+
+const skillsSection = document.querySelector(".skills");
+
+if (skillsSection) {
+
+    const skillObserver = new IntersectionObserver(
+
+        function (entries) {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    skillsSection.classList.add("visible");
+
+                    skillObserver.unobserve(skillsSection);
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold: 0.3
         }
 
-        update();
+    );
+
+    skillObserver.observe(skillsSection);
+
+}
+
+
+/* =========================================================
+   06. GALLERY LIGHTBOX
+========================================================= */
+
+const galleryItems =
+    document.querySelectorAll(".gallery-item img");
+
+const lightbox =
+    document.getElementById("lightbox");
+
+const lightboxImage =
+    document.getElementById("lightboxImage");
+
+const lightboxClose =
+    document.getElementById("lightboxClose");
+
+
+galleryItems.forEach(image => {
+
+    image.addEventListener("click", function () {
+
+        if (!lightbox || !lightboxImage) return;
+
+        lightboxImage.src = image.src;
+
+        lightboxImage.alt = image.alt;
+
+        lightbox.classList.add("active");
+
+        document.body.classList.add("no-scroll");
+
+    });
+
+});
+
+
+function closeLightbox() {
+
+    if (!lightbox) return;
+
+    lightbox.classList.remove("active");
+
+    document.body.classList.remove("no-scroll");
+
+}
+
+
+if (lightboxClose) {
+
+    lightboxClose.addEventListener(
+        "click",
+        closeLightbox
+    );
+
+}
+
+
+if (lightbox) {
+
+    lightbox.addEventListener("click", function (event) {
+
+        if (event.target === lightbox) {
+
+            closeLightbox();
+
+        }
 
     });
 
 }
 
-let counterPlayed = false;
 
-window.addEventListener("scroll",()=>{
+/* =========================================================
+   07. ESCAPE KEY FOR LIGHTBOX
+========================================================= */
 
-    const stats = document.querySelector(".stats");
+document.addEventListener("keydown", function (event) {
 
-    const top = stats.getBoundingClientRect().top;
+    if (event.key === "Escape") {
 
-    if(top < window.innerHeight-100 && !counterPlayed){
-
-        startCounter();
-
-        counterPlayed = true;
+        closeLightbox();
 
     }
 
 });
 
-// ================= REVEAL =================
 
-const reveals = document.querySelectorAll("section");
+/* =========================================================
+   08. SMOOTH SCROLL
+========================================================= */
 
-window.addEventListener("scroll", revealSection);
+document.querySelectorAll('a[href^="#"]').forEach(link => {
 
-function revealSection(){
+    link.addEventListener("click", function (event) {
 
-    reveals.forEach(section=>{
+        const targetID =
+            this.getAttribute("href");
 
-        const top = section.getBoundingClientRect().top;
-
-        if(top < window.innerHeight-120){
-
-            section.classList.add("reveal");
-
-            section.classList.add("active");
-
+        if (
+            !targetID ||
+            targetID === "#"
+        ) {
+            return;
         }
 
-    });
+        const target =
+            document.querySelector(targetID);
 
-}
+        if (!target) return;
 
-revealSection();
+        event.preventDefault();
 
-// ================= SMOOTH BUTTON =================
+        target.scrollIntoView({
 
-document.querySelectorAll("a[href^='#']").forEach(anchor=>{
+            behavior: "smooth",
 
-    anchor.addEventListener("click",function(e){
-
-        e.preventDefault();
-
-        document.querySelector(this.getAttribute("href")).scrollIntoView({
-
-            behavior:"smooth"
+            block: "start"
 
         });
 
@@ -139,182 +279,137 @@ document.querySelectorAll("a[href^='#']").forEach(anchor=>{
 
 });
 
-// ================= HERO PARALLAX =================
 
-window.addEventListener("scroll",()=>{
+/* =========================================================
+   09. HERO PARALLAX
+========================================================= */
 
-    const hero = document.querySelector(".hero");
+/*
+   Efek sangat ringan.
+   Tidak dijalankan di HP agar performa tetap bagus.
+*/
 
-    let value = window.scrollY;
+const heroBackground =
+    document.querySelector(".hero-background");
 
-    hero.style.backgroundPositionY = value * .5 + "px";
+const desktopQuery =
+    window.matchMedia("(min-width: 901px)");
 
-});
 
-// ================= GALLERY =================
+function heroParallax() {
 
-const galleryImages = document.querySelectorAll(".gallery-grid img");
+    if (!heroBackground) return;
 
-const lightbox = document.createElement("div");
+    if (!desktopQuery.matches) {
 
-lightbox.id = "lightbox";
+        heroBackground.style.transform =
+            "scale(1)";
 
-document.body.appendChild(lightbox);
+        return;
 
-galleryImages.forEach(image=>{
+    }
 
-    image.addEventListener("click",()=>{
+    const scroll =
+        window.scrollY;
 
-        lightbox.classList.add("active");
+    heroBackground.style.transform =
+        `translateY(${scroll * 0.12}px) scale(1.03)`;
 
-        const img = document.createElement("img");
+}
 
-        img.src = image.src;
 
-        while(lightbox.firstChild){
+window.addEventListener(
+    "scroll",
+    heroParallax,
+    { passive: true }
+);
 
-            lightbox.removeChild(lightbox.firstChild);
 
-        }
+/* =========================================================
+   10. COMPANY CARD INTERACTION
+========================================================= */
 
-        lightbox.appendChild(img);
+const companyCards =
+    document.querySelectorAll(".company-card");
+
+
+companyCards.forEach(card => {
+
+    card.addEventListener("click", function () {
+
+        const company =
+            this.querySelector("h3");
+
+        if (!company) return;
+
+        const companyName =
+            company.textContent.trim();
+
+        console.log(
+            "Selected company:",
+            companyName
+        );
 
     });
 
 });
 
-lightbox.addEventListener("click",()=>{
 
-    lightbox.classList.remove("active");
+/* =========================================================
+   11. PREVENT IMAGE DRAGGING
+========================================================= */
 
-});
+document.querySelectorAll("img").forEach(image => {
 
-// ================= CURSOR EFFECT =================
-
-const cursor = document.createElement("div");
-
-cursor.classList.add("cursor");
-
-document.body.appendChild(cursor);
-
-window.addEventListener("mousemove",(e)=>{
-
-    cursor.style.left = e.clientX+"px";
-
-    cursor.style.top = e.clientY+"px";
+    image.setAttribute(
+        "draggable",
+        "false"
+    );
 
 });
 
-// ================= PROJECT HOVER =================
 
-const cards = document.querySelectorAll(".project-card");
+/* =========================================================
+   12. YEAR AUTOMATIC
+========================================================= */
 
-cards.forEach(card=>{
+const footerYear =
+    document.querySelector(".footer-right");
 
-    card.addEventListener("mousemove",(e)=>{
+if (footerYear) {
 
-        const rect = card.getBoundingClientRect();
+    const currentYear =
+        new Date().getFullYear();
 
-        const x = e.clientX - rect.left;
+    footerYear.textContent =
+        `© ${currentYear}`;
 
-        const y = e.clientY - rect.top;
+}
 
-        card.style.setProperty("--x",x+"px");
 
-        card.style.setProperty("--y",y+"px");
+/* =========================================================
+   13. REDUCE MOTION SUPPORT
+========================================================= */
 
-    });
+const reduceMotion =
+    window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+    );
 
-});
 
-// ================= TYPING EFFECT =================
+if (reduceMotion.matches) {
 
-const text = [
+    document.documentElement.style.scrollBehavior =
+        "auto";
 
-"Warehouse Staff",
+}
 
-"Inventory Specialist",
 
-"Event Supervisor",
+/* =========================================================
+   14. CONSOLE MESSAGE
+========================================================= */
 
-"Project Coordinator"
-
-];
-
-let count = 0;
-
-let index = 0;
-
-let currentText = "";
-
-let letter = "";
-
-const title = document.querySelector(".hero p");
-
-(function type(){
-
-    if(count === text.length){
-
-        count = 0;
-
-    }
-
-    currentText = text[count];
-
-    letter = currentText.slice(0,++index);
-
-    title.innerHTML = letter;
-
-    if(letter.length === currentText.length){
-
-        count++;
-
-        index = 0;
-
-        setTimeout(type,1500);
-
-    }else{
-
-        setTimeout(type,80);
-
-    }
-
-})();
-
-// ================= BACK TO TOP =================
-
-const topButton = document.createElement("button");
-
-topButton.innerHTML="↑";
-
-topButton.id="topButton";
-
-document.body.appendChild(topButton);
-
-window.addEventListener("scroll",()=>{
-
-    if(window.scrollY>500){
-
-        topButton.classList.add("show");
-
-    }else{
-
-        topButton.classList.remove("show");
-
-    }
-
-});
-
-topButton.addEventListener("click",()=>{
-
-    window.scrollTo({
-
-        top:0,
-
-        behavior:"smooth"
-
-    });
-
-});
-
-console.log("Portfolio Ready 🚀");
+console.log(
+    "Niko Juliandarus Portfolio — Ready."
+);
+```
