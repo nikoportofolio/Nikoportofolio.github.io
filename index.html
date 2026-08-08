@@ -1,448 +1,813 @@
+```html
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
+    <title>Niko Juliandarus | Professional Portfolio</title>
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<title>Niko Juliandarus Portfolio</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
 
-<link rel="stylesheet" href="css/style.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
 
-<link rel="preconnect"
-href="https://fonts.googleapis.com">
-
-<link rel="preconnect"
-href="https://fonts.gstatic.com"
-crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-rel="stylesheet">
-
-<script defer src="js/script.js"></script>
-
+    <!-- JavaScript -->
+    <script defer src="js/script.js"></script>
 </head>
 
 <body>
 
+    <!-- =========================
+         LOADING SCREEN
+    ========================== -->
 
-<!-- Loading -->
+    <div class="loader" id="loader">
+        <div class="loader-inner">
+            <span>NJ</span>
+        </div>
+    </div>
 
-<div id="loader">
 
-<div class="spinner"></div>
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
 
-</div>
+    <header class="navbar" id="navbar">
 
+        <a href="#home" class="logo">
+            NJ<span>.</span>
+        </a>
 
+        <nav class="nav-menu">
 
-<!-- Navbar -->
+            <a href="#about">About</a>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
 
-<nav>
+        </nav>
 
-<div class="logo">
+        <button class="menu-toggle" id="menuToggle">
+            ☰
+        </button>
 
-NJ
+    </header>
 
-</div>
 
-<ul>
+    <!-- =========================
+         HOME / HERO
+    ========================== -->
 
-<li><a href="#about">About</a></li>
+    <main>
 
-<li><a href="#projects">Projects</a></li>
+        <section class="hero" id="home">
 
-<li><a href="#gallery">Gallery</a></li>
+            <!--
+                GANTI FOTO INI:
+                assets/images/hero.jpg
 
-<li><a href="#timeline">Journey</a></li>
+                Bisa berupa:
+                - foto event
+                - foto booth
+                - foto pekerjaan
+                - foto warehouse
+            -->
 
-<li><a href="#contact">Contact</a></li>
+            <div class="hero-background"></div>
 
-</ul>
+            <div class="hero-overlay"></div>
 
-</nav>
+            <div class="hero-content">
 
+                <p class="hero-label">
+                    PROFESSIONAL PORTFOLIO
+                </p>
 
+                <h1>
+                    Niko<br>
+                    Juliandarus
+                </h1>
 
-<!-- Hero -->
+                <p class="hero-role">
+                    Warehouse • Event • Project Coordination
+                </p>
 
-<section class="hero">
+                <a href="#experience" class="hero-button">
+                    Explore My Experience
+                    <span>↓</span>
+                </a>
 
-<div class="overlay"></div>
+            </div>
 
-<div class="hero-content">
+            <div class="hero-bottom">
 
-<h3>Hello, I'm</h3>
+                <span>
+                    Scroll to explore
+                </span>
 
-<h1>Niko Juliandarus</h1>
+                <span class="hero-line"></span>
 
-<p>
+                <span>
+                    2026
+                </span>
 
-Warehouse Staff
+            </div>
 
-<span>|</span>
+        </section>
 
-Inventory Control
 
-<span>|</span>
+        <!-- =========================
+             ABOUT
+        ========================== -->
 
-Event Supervisor
+        <section class="about section" id="about">
 
-</p>
+            <div class="section-header">
 
-<a href="#projects" class="btn">
+                <span class="section-number">
+                    01
+                </span>
 
-Explore Portfolio
+                <span class="section-label">
+                    ABOUT ME
+                </span>
 
-</a>
+            </div>
 
-</div>
 
-</section>
+            <div class="about-grid">
 
+                <!-- FOTO KAMU -->
 
+                <div class="about-image">
 
-<!-- About -->
+                    <!--
+                        GANTI DENGAN FOTO KAMU
 
-<section id="about">
+                        assets/images/profile.jpg
+                    -->
 
-<div class="container">
+                    <img
+                        src="assets/images/profile.jpg"
+                        alt="Niko Juliandarus"
+                    >
 
-<h2>About Me</h2>
+                    <div class="image-caption">
+                        Niko Juliandarus
+                    </div>
 
-<p>
+                </div>
 
-Write your introduction here.
 
-Explain your experience,
+                <!-- TEXT -->
 
-your passion,
+                <div class="about-content">
 
-and why companies should hire you.
+                    <p class="about-intro">
+                        Warehouse Staff & Event Supervisor
+                        focused on operational execution,
+                        inventory management and project coordination.
+                    </p>
 
-</p>
+                    <p class="about-description">
+                        Saya memiliki pengalaman dalam pekerjaan
+                        warehouse, inventory, event setup, quality
+                        control, serta koordinasi pekerjaan di lapangan.
+                    </p>
 
-</div>
+                    <p class="about-description">
+                        Saya terbiasa bekerja bersama tim,
+                        memastikan pekerjaan berjalan sesuai target,
+                        menangani kendala operasional dan menjaga
+                        kualitas pekerjaan hingga proyek selesai.
+                    </p>
 
-</section>
 
+                    <div class="about-meta">
 
+                        <div>
+                            <span>Experience</span>
+                            <strong>2+ Years</strong>
+                        </div>
 
-<!-- Statistics -->
+                        <div>
+                            <span>Field</span>
+                            <strong>Warehouse & Event</strong>
+                        </div>
 
-<section class="stats">
+                        <div>
+                            <span>Role</span>
+                            <strong>Supervisor</strong>
+                        </div>
 
-<div class="card">
+                        <div>
+                            <span>Based</span>
+                            <strong>Indonesia</strong>
+                        </div>
 
-<h2 class="counter" data-target="2">
+                    </div>
 
-0
+                </div>
 
-</h2>
+            </div>
 
-<p>Years Experience</p>
+        </section>
 
-</div>
 
-<div class="card">
+        <!-- =========================
+             EXPERIENCE
+        ========================== -->
 
-<h2 class="counter" data-target="120">
+        <section class="experience section" id="experience">
 
-0
+            <div class="section-header">
 
-</h2>
+                <span class="section-number">
+                    02
+                </span>
 
-<p>Projects</p>
+                <span class="section-label">
+                    EXPERIENCE
+                </span>
 
-</div>
+            </div>
 
-<div class="card">
 
-<h2 class="counter" data-target="5000">
+            <div class="experience-list">
 
-0
+                <article class="experience-item">
 
-</h2>
+                    <div class="experience-year">
+                        2024 —
+                    </div>
 
-<p>Inventory Managed</p>
+                    <div class="experience-info">
 
-</div>
+                        <h2>
+                            Warehouse Staff
+                        </h2>
 
-<div class="card">
+                        <p class="company">
+                            Maximaindo
+                        </p>
 
-<h2 class="counter" data-target="100">
+                        <p>
+                            Inventory management, stock checking,
+                            material handling and warehouse operations.
+                        </p>
 
-0
+                    </div>
 
-</h2>
+                </article>
 
-<p>Commitment</p>
 
-</div>
+                <article class="experience-item">
 
-</section>
+                    <div class="experience-year">
+                        2025 —
+                    </div>
 
+                    <div class="experience-info">
 
+                        <h2>
+                            Event Supervisor
+                        </h2>
 
-<!-- Projects -->
+                        <p class="company">
+                            Project / Event Operations
+                        </p>
 
-<section id="projects">
+                        <p>
+                            Coordinating field teams, supervising
+                            project execution, quality control and
+                            ensuring work is completed according
+                            to schedule.
+                        </p>
 
-<div class="container">
+                    </div>
 
-<h2>
+                </article>
 
-Featured Projects
 
-</h2>
+                <!--
+                    TAMBAHKAN EXPERIENCE BARU DI SINI
+                -->
 
-<div class="project-grid">
+            </div>
 
+        </section>
 
 
-<div class="project-card">
+        <!-- =========================
+             PROJECT EXPERIENCE
+        ========================== -->
 
-<img src="assets/images/project1.jpg">
+        <section class="projects section" id="projects">
 
-<div class="project-info">
+            <div class="section-header">
 
-<h3>Maximaindo</h3>
+                <span class="section-number">
+                    03
+                </span>
 
-<p>
+                <span class="section-label">
+                    PROJECT EXPERIENCE
+                </span>
 
-Maining & Adexco
+            </div>
 
-</p>
 
-<button>
+            <div class="projects-intro">
 
-View Detail
+                <h2>
+                    Companies & Projects
+                </h2>
 
-</button>
+                <p>
+                    Selected companies and event projects
+                    I have been involved with.
+                </p>
 
-</div>
+            </div>
 
-</div>
 
+            <div class="company-list">
 
 
-<div class="project-card">
+                <!-- PT MEANING -->
 
-<img src="assets/images/project2.jpg">
+                <article class="company-card">
 
-<div class="project-info">
+                    <div class="company-number">
+                        01
+                    </div>
 
-<h3>Bigbang Festival</h3>
+                    <div class="company-main">
 
-<p>
+                        <h3>
+                            PT Meaning
+                        </h3>
 
-PIC Selasar
+                        <p>
+                            Event & Project Experience
+                        </p>
 
-</p>
+                    </div>
 
-<button>
+                    <div class="company-action">
+                        View Projects →
+                    </div>
 
-View Detail
+                </article>
 
-</button>
 
-</div>
+                <!-- PT ADEXCO -->
 
-</div>
+                <article class="company-card">
 
+                    <div class="company-number">
+                        02
+                    </div>
 
+                    <div class="company-main">
 
-<div class="project-card">
+                        <h3>
+                            PT Adexco
+                        </h3>
 
-<img src="assets/images/project3.jpg">
+                        <p>
+                            Event & Project Experience
+                        </p>
 
-<div class="project-info">
+                    </div>
 
-<h3>Maximaindo</h3>
+                    <div class="company-action">
+                        View Projects →
+                    </div>
 
-<p>
+                </article>
 
-Warehouse Staff
 
-</p>
+                <!-- PT UNI GLOBAL -->
 
-<button>
+                <article class="company-card">
 
-View Detail
+                    <div class="company-number">
+                        03
+                    </div>
 
-</button>
+                    <div class="company-main">
 
-</div>
+                        <h3>
+                            PT Uni Global
+                        </h3>
 
-</div>
+                        <p>
+                            Event & Project Experience
+                        </p>
 
-</div>
+                    </div>
 
-</div>
+                    <div class="company-action">
+                        View Projects →
+                    </div>
 
-</section>
+                </article>
 
 
+                <!-- TAMBAHKAN PERUSAHAAN LAIN DI SINI -->
 
-<!-- Gallery -->
 
-<section id="gallery">
+            </div>
 
-<h2>
+        </section>
 
-Gallery
 
-</h2>
+        <!-- =========================
+             GALLERY
+        ========================== -->
 
-<div class="gallery-grid">
+        <section class="gallery section" id="gallery">
 
-<img src="assets/images/1.jpg">
+            <div class="section-header">
 
-<img src="assets/images/2.jpg">
+                <span class="section-number">
+                    04
+                </span>
 
-<img src="assets/images/3.jpg">
+                <span class="section-label">
+                    GALLERY
+                </span>
 
-<img src="assets/images/4.jpg">
+            </div>
 
-<img src="assets/images/5.jpg">
 
-<img src="assets/images/6.jpg">
+            <div class="gallery-heading">
 
-</div>
+                <h2>
+                    Behind the Projects
+                </h2>
 
-</section>
+                <p>
+                    A collection of work, events and
+                    project documentation.
+                </p>
 
+            </div>
 
 
-<!-- Timeline -->
+            <div class="gallery-grid">
 
-<section id="timeline">
+                <div class="gallery-item large">
 
-<h2>
+                    <img
+                        src="assets/images/1.jpg"
+                        alt="Project documentation"
+                    >
 
-Career Journey
+                </div>
 
-</h2>
 
-<div class="timeline">
+                <div class="gallery-item">
 
-<div class="timeline-item">
+                    <img
+                        src="assets/images/2.jpg"
+                        alt="Project documentation"
+                    >
 
-<h3>
+                </div>
 
-2024
 
-</h3>
+                <div class="gallery-item">
 
-<p>
+                    <img
+                        src="assets/images/3.jpg"
+                        alt="Project documentation"
+                    >
 
-Joined Maximaindo
+                </div>
 
-</p>
 
-</div>
+                <div class="gallery-item">
 
-<div class="timeline-item">
+                    <img
+                        src="assets/images/4.jpg"
+                        alt="Project documentation"
+                    >
 
-<h3>
+                </div>
 
-Warehouse Staff
 
-</h3>
+                <div class="gallery-item large">
 
-<p>
+                    <img
+                        src="assets/images/5.jpg"
+                        alt="Project documentation"
+                    >
 
-Inventory Control
+                </div>
 
-</p>
 
-</div>
+                <div class="gallery-item">
 
-<div class="timeline-item">
+                    <img
+                        src="assets/images/6.jpg"
+                        alt="Project documentation"
+                    >
 
-<h3>
+                </div>
 
-Event Supervisor
+            </div>
 
-</h3>
+        </section>
 
-<p>
 
-Leading Project
+        <!-- =========================
+             SKILLS
+        ========================== -->
 
-</p>
+        <section class="skills section" id="skills">
 
-</div>
+            <div class="section-header">
 
-<div class="timeline-item">
+                <span class="section-number">
+                    05
+                </span>
 
-<h3>
+                <span class="section-label">
+                    SKILLS
+                </span>
 
-Present
+            </div>
 
-</h3>
 
-<p>
+            <div class="skills-grid">
 
-Looking for New Challenge
+                <div class="skills-text">
 
-</p>
+                    <h2>
+                        What I Bring
+                    </h2>
 
-</div>
+                    <p>
+                        Skills developed through operational
+                        and project experience.
+                    </p>
 
-</div>
+                </div>
 
-</section>
 
+                <div class="skills-list">
 
+                    <div class="skill">
 
-<!-- Contact -->
+                        <div class="skill-top">
 
-<section id="contact">
+                            <span>
+                                Warehouse Operations
+                            </span>
 
-<h2>
+                            <span>
+                                90%
+                            </span>
 
-Let's Work Together
+                        </div>
 
-</h2>
+                        <div class="skill-bar">
+                            <span style="width:90%"></span>
+                        </div>
 
-<p>
+                    </div>
 
-nikojuliandarus020@gmail.com
 
-</p>
+                    <div class="skill">
 
-<p>
+                        <div class="skill-top">
 
-Jakarta, Indonesia
+                            <span>
+                                Inventory Management
+                            </span>
 
-</p>
+                            <span>
+                                85%
+                            </span>
 
-<a class="btn">
+                        </div>
 
-Download CV
+                        <div class="skill-bar">
+                            <span style="width:85%"></span>
+                        </div>
 
-</a>
+                    </div>
 
-</section>
 
+                    <div class="skill">
 
+                        <div class="skill-top">
 
-<footer>
+                            <span>
+                                Event Supervision
+                            </span>
 
-© 2026
+                            <span>
+                                90%
+                            </span>
 
-Niko Juliandarus
+                        </div>
 
-Portfolio
+                        <div class="skill-bar">
+                            <span style="width:90%"></span>
+                        </div>
 
-</footer>
+                    </div>
 
 
+                    <div class="skill">
+
+                        <div class="skill-top">
+
+                            <span>
+                                Team Coordination
+                            </span>
+
+                            <span>
+                                88%
+                            </span>
+
+                        </div>
+
+                        <div class="skill-bar">
+                            <span style="width:88%"></span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="skill">
+
+                        <div class="skill-top">
+
+                            <span>
+                                Quality Control
+                            </span>
+
+                            <span>
+                                85%
+                            </span>
+
+                        </div>
+
+                        <div class="skill-bar">
+                            <span style="width:85%"></span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CERTIFICATES
+        ========================== -->
+
+        <section class="certificates section">
+
+            <div class="section-header">
+
+                <span class="section-number">
+                    06
+                </span>
+
+                <span class="section-label">
+                    CERTIFICATES
+                </span>
+
+            </div>
+
+
+            <div class="certificate-empty">
+
+                <span>
+                    CERTIFICATES
+                </span>
+
+                <h2>
+                    Credentials & Certifications
+                </h2>
+
+                <p>
+                    Add your certificates here when available.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CONTACT
+        ========================== -->
+
+        <section class="contact section" id="contact">
+
+            <div class="contact-content">
+
+                <span class="section-label">
+                    07 — CONTACT
+                </span>
+
+                <h2>
+                    Let's work<br>
+                    together.
+                </h2>
+
+                <p>
+                    Interested in working together
+                    or discussing an opportunity?
+                </p>
+
+                <a href="mailto:your@email.com"
+                   class="contact-email">
+
+                    your@email.com
+
+                </a>
+
+
+                <div class="contact-buttons">
+
+                    <a href="#" class="contact-button">
+                        Download CV
+                    </a>
+
+                    <a href="#" class="contact-button outline">
+                        WhatsApp
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <div class="footer-left">
+            NJ.
+        </div>
+
+        <div class="footer-center">
+            Professional Portfolio
+        </div>
+
+        <div class="footer-right">
+            © 2026
+        </div>
+
+    </footer>
+
+
+    <!-- =========================
+         LIGHTBOX
+    ========================== -->
+
+    <div class="lightbox" id="lightbox">
+
+        <button class="lightbox-close" id="lightboxClose">
+            ×
+        </button>
+
+        <img
+            id="lightboxImage"
+            src=""
+            alt="Gallery preview"
+        >
+
+    </div>
 
 </body>
 
 </html>
+```
