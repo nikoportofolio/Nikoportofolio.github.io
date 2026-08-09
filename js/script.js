@@ -69,11 +69,11 @@ let progressTimer = null;
 
 const imageSources = [
 
-    "assets/images/Home1.jpg",
+    "assets/images/home1.jpg",
 
-    "assets/images/Home2.jpg",
+    "assets/images/home2.jpg",
 
-    "assets/images/Home3.jpg"
+    "assets/images/home3.jpg"
 
 ];
 
