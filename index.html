@@ -1,815 +1,378 @@
-```html
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Niko Juliandarus | Professional Portfolio</title>
-
-    <!-- Google Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet"
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
     >
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css">
+    <title>Niko Juliandarus | Portfolio</title>
 
-    <!-- JavaScript -->
-    <script defer src="js/script.js"></script>
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
 </head>
+
 
 <body>
 
-    <!-- =========================
-         LOADING SCREEN
-    ========================== -->
 
-    <!--
-    <div class="loader" id="loader">
-        <div class="loader-inner">
-            <span>NJ</span>
-        </div>
-    </div>
-    -->
-
-
-    <!-- =========================
-         NAVIGATION
-    ========================== -->
+    <!-- =================================================
+         NAVBAR
+    ================================================== -->
 
     <header class="navbar" id="navbar">
 
-        <a href="#home" class="logo">
+        <a
+            href="#home"
+            class="logo"
+        >
             NJ<span>.</span>
         </a>
 
+
         <nav class="nav-menu">
 
-            <a href="#about">About</a>
-            <a href="#experience">Experience</a>
-            <a href="#projects">Projects</a>
-            <a href="#gallery">Gallery</a>
-            <a href="#skills">Skills</a>
-            <a href="#contact">Contact</a>
+            <a
+                href="#home"
+                class="active"
+            >
+                Home
+            </a>
+
+            <a href="#about">
+                About
+            </a>
+
+            <a href="#experience">
+                Experience
+            </a>
+
+            <a href="#projects">
+                Projects
+            </a>
+
+            <a href="#gallery">
+                Gallery
+            </a>
+
+            <a href="#contact">
+                Contact
+            </a>
 
         </nav>
 
-        <button class="menu-toggle" id="menuToggle">
-            ☰
+
+        <button
+            class="menu-toggle"
+            aria-label="Open navigation menu"
+        >
+
+            <span></span>
+            <span></span>
+            <span></span>
+
         </button>
 
     </header>
 
 
-    <!-- =========================
-         HOME / HERO
-    ========================== -->
 
-    <main>
+    <!-- =================================================
+         HOME
+    ================================================== -->
 
-        <section class="hero" id="home">
+    <section
+        id="home"
+        class="hero"
+    >
 
-            <!--
-                GANTI FOTO INI:
-                assets/images/hero.jpg
+        <div class="hero-background">
 
-                Bisa berupa:
-                - foto event
-                - foto booth
-                - foto pekerjaan
-                - foto warehouse
-            -->
+            <img
+                src="assets/images/home1.jpg"
+                class="hero-slide active"
+                alt=""
+            >
 
-            <div class="hero-background"></div>
+            <img
+                src="assets/images/home2.jpg"
+                class="hero-slide"
+                alt=""
+            >
 
-            <div class="hero-overlay"></div>
+            <img
+                src="assets/images/home3.jpg"
+                class="hero-slide"
+                alt=""
+            >
 
-            <div class="hero-content">
+        </div>
 
-                <p class="hero-label">
-                    PROFESSIONAL PORTFOLIO
-                </p>
 
-                <h1>
-                    Niko<br>
-                    Juliandarus
-                </h1>
+        <div class="hero-overlay"></div>
 
-                <p class="hero-role">
-                    Warehouse • Event • Project Coordination
-                </p>
 
-                <a href="#experience" class="hero-button">
+        <div class="hero-content">
+
+            <p class="hero-label">
+                PROFESSIONAL PORTFOLIO
+            </p>
+
+
+            <h1>
+                Niko Juliandarus
+            </h1>
+
+
+            <div class="hero-role">
+
+                <span id="typing-role"></span>
+
+                <span class="cursor">
+                    |
+                </span>
+
+            </div>
+
+
+            <p class="hero-description">
+                Warehouse Operations & Event Coordinator
+            </p>
+
+
+            <a
+                href="#experience"
+                class="hero-button"
+            >
+
+                <span>
                     Explore My Experience
-                    <span>↓</span>
-                </a>
-
-            </div>
-
-            <div class="hero-bottom">
+                </span>
 
                 <span>
-                    Scroll to explore
+                    ↓
                 </span>
 
-                <span class="hero-line"></span>
+            </a>
 
-                <span>
-                    2026
-                </span>
-
-            </div>
-
-        </section>
+        </div>
 
 
-        <!-- =========================
-             ABOUT
-        ========================== -->
+        <div class="hero-bottom">
 
-        <section class="about section" id="about">
+            <span>
+                Scroll to explore
+            </span>
 
-            <div class="section-header">
+            <span>
+                2026
+            </span>
 
-                <span class="section-number">
-                    01
-                </span>
-
-                <span class="section-label">
-                    ABOUT ME
-                </span>
-
-            </div>
+        </div>
 
 
-            <div class="about-grid">
+        <div class="slide-counter">
 
-                <!-- FOTO KAMU -->
+            <span id="current-slide">
+                01
+            </span>
 
-                <div class="about-image">
+            <span class="counter-line"></span>
 
-                    <!--
-                        GANTI DENGAN FOTO KAMU
+            <span>
+                03
+            </span>
 
-                        assets/images/profile.jpg
-                    -->
+        </div>
+
+
+        <div class="slide-progress">
+
+            <div
+                class="slide-progress-bar"
+                id="slide-progress-bar"
+            ></div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         ABOUT
+    ================================================== -->
+
+    <section
+        id="about"
+        class="about-section"
+    >
+
+        <div class="about-container">
+
+
+            <!-- FOTO -->
+
+            <div class="about-photo">
+
+                <div class="photo-frame">
 
                     <img
                         src="assets/images/profile.jpg"
                         alt="Niko Juliandarus"
                     >
 
-                    <div class="image-caption">
-                        Niko Juliandarus
-                    </div>
-
-                </div>
-
-
-                <!-- TEXT -->
-
-                <div class="about-content">
-
-                    <p class="about-intro">
-                        Warehouse Staff & Event Supervisor
-                        focused on operational execution,
-                        inventory management and project coordination.
-                    </p>
-
-                    <p class="about-description">
-                        Saya memiliki pengalaman dalam pekerjaan
-                        warehouse, inventory, event setup, quality
-                        control, serta koordinasi pekerjaan di lapangan.
-                    </p>
-
-                    <p class="about-description">
-                        Saya terbiasa bekerja bersama tim,
-                        memastikan pekerjaan berjalan sesuai target,
-                        menangani kendala operasional dan menjaga
-                        kualitas pekerjaan hingga proyek selesai.
-                    </p>
-
-
-                    <div class="about-meta">
-
-                        <div>
-                            <span>Experience</span>
-                            <strong>2+ Years</strong>
-                        </div>
-
-                        <div>
-                            <span>Field</span>
-                            <strong>Warehouse & Event</strong>
-                        </div>
-
-                        <div>
-                            <span>Role</span>
-                            <strong>Supervisor</strong>
-                        </div>
-
-                        <div>
-                            <span>Based</span>
-                            <strong>Indonesia</strong>
-                        </div>
-
-                    </div>
-
                 </div>
 
             </div>
 
-        </section>
 
 
-        <!-- =========================
-             EXPERIENCE
-        ========================== -->
+            <!-- TEXT -->
 
-        <section class="experience section" id="experience">
+            <div class="about-content">
 
-            <div class="section-header">
-
-                <span class="section-number">
-                    02
-                </span>
-
-                <span class="section-label">
-                    EXPERIENCE
-                </span>
-
-            </div>
-
-
-            <div class="experience-list">
-
-                <article class="experience-item">
-
-                    <div class="experience-year">
-                        2024 —
-                    </div>
-
-                    <div class="experience-info">
-
-                        <h2>
-                            Warehouse Staff
-                        </h2>
-
-                        <p class="company">
-                            Maximaindo
-                        </p>
-
-                        <p>
-                            Inventory management, stock checking,
-                            material handling and warehouse operations.
-                        </p>
-
-                    </div>
-
-                </article>
-
-
-                <article class="experience-item">
-
-                    <div class="experience-year">
-                        2025 —
-                    </div>
-
-                    <div class="experience-info">
-
-                        <h2>
-                            Event Supervisor
-                        </h2>
-
-                        <p class="company">
-                            Project / Event Operations
-                        </p>
-
-                        <p>
-                            Coordinating field teams, supervising
-                            project execution, quality control and
-                            ensuring work is completed according
-                            to schedule.
-                        </p>
-
-                    </div>
-
-                </article>
-
-
-                <!--
-                    TAMBAHKAN EXPERIENCE BARU DI SINI
-                -->
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             PROJECT EXPERIENCE
-        ========================== -->
-
-        <section class="projects section" id="projects">
-
-            <div class="section-header">
-
-                <span class="section-number">
-                    03
-                </span>
-
-                <span class="section-label">
-                    PROJECT EXPERIENCE
-                </span>
-
-            </div>
-
-
-            <div class="projects-intro">
-
-                <h2>
-                    Companies & Projects
-                </h2>
-
-                <p>
-                    Selected companies and event projects
-                    I have been involved with.
+                <p class="section-label">
+                    ABOUT ME
                 </p>
 
-            </div>
-
-
-            <div class="company-list">
-
-
-                <!-- PT MEANING -->
-
-                <article class="company-card">
-
-                    <div class="company-number">
-                        01
-                    </div>
-
-                    <div class="company-main">
-
-                        <h3>
-                            PT Meaning
-                        </h3>
-
-                        <p>
-                            Event & Project Experience
-                        </p>
-
-                    </div>
-
-                    <div class="company-action">
-                        View Projects →
-                    </div>
-
-                </article>
-
-
-                <!-- PT ADEXCO -->
-
-                <article class="company-card">
-
-                    <div class="company-number">
-                        02
-                    </div>
-
-                    <div class="company-main">
-
-                        <h3>
-                            PT Adexco
-                        </h3>
-
-                        <p>
-                            Event & Project Experience
-                        </p>
-
-                    </div>
-
-                    <div class="company-action">
-                        View Projects →
-                    </div>
-
-                </article>
-
-
-                <!-- PT UNI GLOBAL -->
-
-                <article class="company-card">
-
-                    <div class="company-number">
-                        03
-                    </div>
-
-                    <div class="company-main">
-
-                        <h3>
-                            PT Uni Global
-                        </h3>
-
-                        <p>
-                            Event & Project Experience
-                        </p>
-
-                    </div>
-
-                    <div class="company-action">
-                        View Projects →
-                    </div>
-
-                </article>
-
-
-                <!-- TAMBAHKAN PERUSAHAAN LAIN DI SINI -->
-
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             GALLERY
-        ========================== -->
-
-        <section class="gallery section" id="gallery">
-
-            <div class="section-header">
-
-                <span class="section-number">
-                    04
-                </span>
-
-                <span class="section-label">
-                    GALLERY
-                </span>
-
-            </div>
-
-
-            <div class="gallery-heading">
 
                 <h2>
-                    Behind the Projects
+                    From warehouse operations to event supervision.
                 </h2>
 
-                <p>
-                    A collection of work, events and
-                    project documentation.
+
+                <p class="about-text">
+
+                    Saya Niko Juliandarus, lulusan SMK Teknik Komputer & Jaringan dengan hampir dua tahun pengalaman di gudang perusahaan kontraktor pameran (Maximando). Terbiasa mengelola siklus barang dari awal masuk, penyimpanan, sampai keluar untuk event.
+
                 </p>
 
-            </div>
 
+                <p class="about-text">
 
-            <div class="gallery-grid">
+                    Kuat dalam stock opname, mencatat masuk-keluar barang, serta mendokumentasikan selisih barang setelah event selesai. Aktif melakukan perawatan rutin barang gudang agar kondisi tetap layak pakai, dan berperan sebagai supervisor semua event Maxima berlangsung. Mampu bekerja di bawah tekanan.
 
-                <div class="gallery-item large">
-
-                    <img
-                        src="assets/images/1.jpg"
-                        alt="Project documentation"
-                    >
-
-                </div>
-
-
-                <div class="gallery-item">
-
-                    <img
-                        src="assets/images/2.jpg"
-                        alt="Project documentation"
-                    >
-
-                </div>
-
-
-                <div class="gallery-item">
-
-                    <img
-                        src="assets/images/3.jpg"
-                        alt="Project documentation"
-                    >
-
-                </div>
-
-
-                <div class="gallery-item">
-
-                    <img
-                        src="assets/images/4.jpg"
-                        alt="Project documentation"
-                    >
-
-                </div>
-
-
-                <div class="gallery-item large">
-
-                    <img
-                        src="assets/images/5.jpg"
-                        alt="Project documentation"
-                    >
-
-                </div>
-
-
-                <div class="gallery-item">
-
-                    <img
-                        src="assets/images/6.jpg"
-                        alt="Project documentation"
-                    >
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             SKILLS
-        ========================== -->
-
-        <section class="skills section" id="skills">
-
-            <div class="section-header">
-
-                <span class="section-number">
-                    05
-                </span>
-
-                <span class="section-label">
-                    SKILLS
-                </span>
-
-            </div>
-
-
-            <div class="skills-grid">
-
-                <div class="skills-text">
-
-                    <h2>
-                        What I Bring
-                    </h2>
-
-                    <p>
-                        Skills developed through operational
-                        and project experience.
-                    </p>
-
-                </div>
-
-
-                <div class="skills-list">
-
-                    <div class="skill">
-
-                        <div class="skill-top">
-
-                            <span>
-                                Warehouse Operations
-                            </span>
-
-                            <span>
-                                90%
-                            </span>
-
-                        </div>
-
-                        <div class="skill-bar">
-                            <span style="width:90%"></span>
-                        </div>
-
-                    </div>
-
-
-                    <div class="skill">
-
-                        <div class="skill-top">
-
-                            <span>
-                                Inventory Management
-                            </span>
-
-                            <span>
-                                85%
-                            </span>
-
-                        </div>
-
-                        <div class="skill-bar">
-                            <span style="width:85%"></span>
-                        </div>
-
-                    </div>
-
-
-                    <div class="skill">
-
-                        <div class="skill-top">
-
-                            <span>
-                                Event Supervision
-                            </span>
-
-                            <span>
-                                90%
-                            </span>
-
-                        </div>
-
-                        <div class="skill-bar">
-                            <span style="width:90%"></span>
-                        </div>
-
-                    </div>
-
-
-                    <div class="skill">
-
-                        <div class="skill-top">
-
-                            <span>
-                                Team Coordination
-                            </span>
-
-                            <span>
-                                88%
-                            </span>
-
-                        </div>
-
-                        <div class="skill-bar">
-                            <span style="width:88%"></span>
-                        </div>
-
-                    </div>
-
-
-                    <div class="skill">
-
-                        <div class="skill-top">
-
-                            <span>
-                                Quality Control
-                            </span>
-
-                            <span>
-                                85%
-                            </span>
-
-                        </div>
-
-                        <div class="skill-bar">
-                            <span style="width:85%"></span>
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             CERTIFICATES
-        ========================== -->
-
-        <section class="certificates section">
-
-            <div class="section-header">
-
-                <span class="section-number">
-                    06
-                </span>
-
-                <span class="section-label">
-                    CERTIFICATES
-                </span>
-
-            </div>
-
-
-            <div class="certificate-empty">
-
-                <span>
-                    CERTIFICATES
-                </span>
-
-                <h2>
-                    Credentials & Certifications
-                </h2>
-
-                <p>
-                    Add your certificates here when available.
                 </p>
 
-            </div>
-
-        </section>
 
 
-        <!-- =========================
-             CONTACT
-        ========================== -->
+                <!-- QUICK INFORMATION -->
 
-        <section class="contact section" id="contact">
-
-            <div class="contact-content">
-
-                <span class="section-label">
-                    07 — CONTACT
-                </span>
-
-                <h2>
-                    Let's work<br>
-                    together.
-                </h2>
-
-                <p>
-                    Interested in working together
-                    or discussing an opportunity?
-                </p>
-
-                <a href="mailto:your@email.com"
-                   class="contact-email">
-
-                    your@email.com
-
-                </a>
+                <div class="about-info">
 
 
-                <div class="contact-buttons">
+                    <div class="info-item">
 
-                    <a href="#" class="contact-button">
-                        Download CV
-                    </a>
+                        <span class="info-number">
+                            01
+                        </span>
 
-                    <a href="#" class="contact-button outline">
-                        WhatsApp
-                    </a>
+                        <div>
+
+                            <strong>
+                                Warehouse
+                            </strong>
+
+                            <small>
+                                Operations & Support
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="info-item">
+
+                        <span class="info-number">
+                            02
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Events
+                            </strong>
+
+                            <small>
+                                Supervision & Coordination
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="info-item">
+
+                        <span class="info-number">
+                            03
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Projects
+                            </strong>
+
+                            <small>
+                                Inventory & Logistics
+                            </small>
+
+                        </div>
+
+                    </div>
+
 
                 </div>
 
             </div>
 
-        </section>
-
-    </main>
-
-
-    <!-- =========================
-         FOOTER
-    ========================== -->
-
-    <footer>
-
-        <div class="footer-left">
-            NJ.
         </div>
 
-        <div class="footer-center">
-            Professional Portfolio
-        </div>
-
-        <div class="footer-right">
-            © 2026
-        </div>
-
-    </footer>
+    </section>
 
 
-    <!-- =========================
-         LIGHTBOX
-    ========================== -->
 
-    <div class="lightbox" id="lightbox">
+    <!-- =================================================
+         FUTURE SECTIONS
+    ================================================== -->
 
-        <button class="lightbox-close" id="lightboxClose">
-            ×
-        </button>
+    <section
+        id="experience"
+        class="empty-section"
+    ></section>
 
-        <img
-            id="lightboxImage"
-            src=""
-            alt="Gallery preview"
-        >
 
-    </div>
+    <section
+        id="projects"
+        class="empty-section"
+    ></section>
+
+
+    <section
+        id="gallery"
+        class="empty-section"
+    ></section>
+
+
+    <section
+        id="contact"
+        class="empty-section"
+    ></section>
+
+
+
+    <script src="js/script.js"></script>
 
 </body>
 
 </html>
-```
