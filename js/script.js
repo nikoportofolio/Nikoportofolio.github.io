@@ -1,415 +1,784 @@
-```javascript
-/* =========================================================
-   NIKO JULIANDARUS — PORTFOLIO
-   JAVASCRIPT
-========================================================= */
+/* =====================================================
+   PORTFOLIO JAVASCRIPT
+   HOME + NAVBAR + 3 IMAGE SLIDESHOW + TYPING
+===================================================== */
 
 
-/* =========================================================
-   01. PAGE LOADER
-========================================================= */
+/* =====================================================
+   ELEMENTS
+===================================================== */
 
-window.addEventListener("load", function () {
+const navbar =
+    document.getElementById("navbar");
 
-    const loader = document.getElementById("loader");
 
-    if (!loader) return;
+const slides =
+    document.querySelectorAll(".hero-slide");
 
-    setTimeout(() => {
 
-        loader.classList.add("hide");
+const currentSlide =
+    document.getElementById("current-slide");
 
-    }, 500);
 
-});
+const progressBar =
+    document.getElementById("slide-progress-bar");
 
 
-/* =========================================================
-   02. NAVBAR SCROLL EFFECT
-========================================================= */
+const menuToggle =
+    document.querySelector(".menu-toggle");
 
-const navbar = document.getElementById("navbar");
 
-window.addEventListener("scroll", function () {
+const navMenu =
+    document.querySelector(".nav-menu");
 
-    if (!navbar) return;
 
-    if (window.scrollY > 50) {
+const navLinks =
+    document.querySelectorAll(".nav-menu a");
 
-        navbar.classList.add("scrolled");
 
-    } else {
+const typingRole =
+    document.getElementById("typing-role");
 
-        navbar.classList.remove("scrolled");
 
-    }
 
-}, { passive: true });
+/* =====================================================
+   SETTINGS
+===================================================== */
 
+const slideDuration = 5000;
 
-/* =========================================================
-   03. MOBILE MENU
-========================================================= */
+const fadeDuration = 1800;
 
-const menuToggle = document.getElementById("menuToggle");
-const navMenu = document.querySelector(".nav-menu");
 
-if (menuToggle && navMenu) {
 
-    menuToggle.addEventListener("click", function () {
+/* =====================================================
+   SLIDE VARIABLES
+===================================================== */
 
-        navMenu.classList.toggle("open");
+let currentIndex = 0;
 
-    });
+let slideTimer = null;
 
+let progressTimer = null;
 
-    // Tutup menu setelah memilih halaman
 
-    const navLinks = navMenu.querySelectorAll("a");
 
-    navLinks.forEach(link => {
+/* =====================================================
+   IMAGE SOURCES
+===================================================== */
 
-        link.addEventListener("click", function () {
+const imageSources = [
 
-            navMenu.classList.remove("open");
+    "Home1.jpg",
 
-        });
+    "Home2.jpg",
 
-    });
+    "Home3.jpg"
 
-}
+];
 
 
-/* =========================================================
-   04. SCROLL REVEAL
-========================================================= */
 
-const sections = document.querySelectorAll(".section");
+/* =====================================================
+   PRELOAD IMAGE
+===================================================== */
 
-const revealObserver = new IntersectionObserver(
+function preloadImage(source) {
 
-    function (entries) {
+    return new Promise(function (resolve) {
 
-        entries.forEach(entry => {
+        const image =
+            new Image();
 
-            if (entry.isIntersecting) {
 
-                entry.target.classList.add("visible");
+        image.onload = async function () {
 
-                revealObserver.unobserve(entry.target);
+            try {
 
-            }
+                if (
+                    typeof image.decode ===
+                    "function"
+                ) {
 
-        });
-
-    },
-
-    {
-        threshold: 0.12
-    }
-
-);
-
-
-sections.forEach(section => {
-
-    revealObserver.observe(section);
-
-});
-
-
-/* =========================================================
-   05. SKILL ANIMATION
-========================================================= */
-
-const skillsSection = document.querySelector(".skills");
-
-if (skillsSection) {
-
-    const skillObserver = new IntersectionObserver(
-
-        function (entries) {
-
-            entries.forEach(entry => {
-
-                if (entry.isIntersecting) {
-
-                    skillsSection.classList.add("visible");
-
-                    skillObserver.unobserve(skillsSection);
+                    await image.decode();
 
                 }
 
-            });
+            } catch (error) {
 
-        },
+                /*
+                    Browser tertentu mungkin
+                    tidak mendukung decode.
+                    Gambar tetap digunakan.
+                */
 
-        {
-            threshold: 0.3
-        }
-
-    );
-
-    skillObserver.observe(skillsSection);
-
-}
+            }
 
 
-/* =========================================================
-   06. GALLERY LIGHTBOX
-========================================================= */
+            resolve(image);
 
-const galleryItems =
-    document.querySelectorAll(".gallery-item img");
-
-const lightbox =
-    document.getElementById("lightbox");
-
-const lightboxImage =
-    document.getElementById("lightboxImage");
-
-const lightboxClose =
-    document.getElementById("lightboxClose");
+        };
 
 
-galleryItems.forEach(image => {
+        image.onerror = function () {
 
-    image.addEventListener("click", function () {
+            resolve(image);
 
-        if (!lightbox || !lightboxImage) return;
+        };
 
-        lightboxImage.src = image.src;
 
-        lightboxImage.alt = image.alt;
-
-        lightbox.classList.add("active");
-
-        document.body.classList.add("no-scroll");
+        image.src = source;
 
     });
 
-});
-
-
-function closeLightbox() {
-
-    if (!lightbox) return;
-
-    lightbox.classList.remove("active");
-
-    document.body.classList.remove("no-scroll");
-
 }
 
 
-if (lightboxClose) {
 
-    lightboxClose.addEventListener(
-        "click",
-        closeLightbox
+/* =====================================================
+   PRELOAD ALL IMAGES
+===================================================== */
+
+async function preloadAllImages() {
+
+    await Promise.all(
+
+        imageSources.map(
+            function (source) {
+
+                return preloadImage(
+                    source
+                );
+
+            }
+        )
+
     );
 
 }
 
 
-if (lightbox) {
 
-    lightbox.addEventListener("click", function (event) {
+/* =====================================================
+   RESET PROGRESS BAR
+===================================================== */
 
-        if (event.target === lightbox) {
+function resetProgressBar() {
 
-            closeLightbox();
-
-        }
-
-    });
-
-}
-
-
-/* =========================================================
-   07. ESCAPE KEY FOR LIGHTBOX
-========================================================= */
-
-document.addEventListener("keydown", function (event) {
-
-    if (event.key === "Escape") {
-
-        closeLightbox();
-
-    }
-
-});
-
-
-/* =========================================================
-   08. SMOOTH SCROLL
-========================================================= */
-
-document.querySelectorAll('a[href^="#"]').forEach(link => {
-
-    link.addEventListener("click", function (event) {
-
-        const targetID =
-            this.getAttribute("href");
-
-        if (
-            !targetID ||
-            targetID === "#"
-        ) {
-            return;
-        }
-
-        const target =
-            document.querySelector(targetID);
-
-        if (!target) return;
-
-        event.preventDefault();
-
-        target.scrollIntoView({
-
-            behavior: "smooth",
-
-            block: "start"
-
-        });
-
-    });
-
-});
-
-
-/* =========================================================
-   09. HERO PARALLAX
-========================================================= */
-
-/*
-   Efek sangat ringan.
-   Tidak dijalankan di HP agar performa tetap bagus.
-*/
-
-const heroBackground =
-    document.querySelector(".hero-background");
-
-const desktopQuery =
-    window.matchMedia("(min-width: 901px)");
-
-
-function heroParallax() {
-
-    if (!heroBackground) return;
-
-    if (!desktopQuery.matches) {
-
-        heroBackground.style.transform =
-            "scale(1)";
+    if (!progressBar) {
 
         return;
 
     }
 
-    const scroll =
-        window.scrollY;
 
-    heroBackground.style.transform =
-        `translateY(${scroll * 0.12}px) scale(1.03)`;
+    /*
+        Matikan transisi sementara
+        agar progress kembali ke 0
+        tanpa animasi mundur.
+    */
+
+    progressBar.style.transition =
+        "none";
+
+
+    progressBar.style.width =
+        "0%";
+
+
+    /*
+        Force browser melakukan
+        repaint sebelum animasi dimulai.
+    */
+
+    progressBar.offsetWidth;
+
+
+    /*
+        Progress berjalan selama
+        5 detik.
+    */
+
+    progressBar.style.transition =
+        `width ${slideDuration}ms linear`;
+
+
+    progressBar.style.width =
+        "100%";
 
 }
+
+
+
+/* =====================================================
+   CHANGE SLIDE
+===================================================== */
+
+function changeSlide() {
+
+    if (
+        slides.length === 0
+    ) {
+
+        return;
+
+    }
+
+
+
+    /*
+        Slide sebelumnya.
+    */
+
+    const previousSlide =
+        slides[currentIndex];
+
+
+
+    /*
+        Pindah ke slide berikutnya.
+    */
+
+    currentIndex++;
+
+
+
+    /*
+        Setelah Home3 kembali
+        ke Home1.
+    */
+
+    if (
+        currentIndex >=
+        slides.length
+    ) {
+
+        currentIndex = 0;
+
+    }
+
+
+
+    /*
+        Slide berikutnya.
+    */
+
+    const nextSlide =
+        slides[currentIndex];
+
+
+
+    /*
+        Letakkan slide baru
+        di atas slide lama.
+    */
+
+    nextSlide.style.zIndex =
+        "2";
+
+
+    previousSlide.style.zIndex =
+        "1";
+
+
+
+    /*
+        Aktifkan slide baru.
+    */
+
+    nextSlide.classList.add(
+        "active"
+    );
+
+
+
+    /*
+        Update counter.
+    */
+
+    if (currentSlide) {
+
+        currentSlide.textContent =
+            String(
+                currentIndex + 1
+            ).padStart(
+                2,
+                "0"
+            );
+
+    }
+
+
+
+    /*
+        Setelah fade selesai,
+        matikan slide lama.
+    */
+
+    setTimeout(
+        function () {
+
+            previousSlide.classList.remove(
+                "active"
+            );
+
+            previousSlide.style.zIndex =
+                "0";
+
+        },
+        fadeDuration + 100
+    );
+
+
+
+    /*
+        Reset progress bar
+        untuk slide baru.
+    */
+
+    resetProgressBar();
+
+}
+
+
+
+/* =====================================================
+   START SLIDESHOW
+===================================================== */
+
+function startSlideshow() {
+
+    /*
+        Bersihkan timer lama.
+    */
+
+    if (slideTimer) {
+
+        clearInterval(
+            slideTimer
+        );
+
+    }
+
+
+
+    if (progressTimer) {
+
+        clearInterval(
+            progressTimer
+        );
+
+    }
+
+
+
+    /*
+        Reset semua slide.
+    */
+
+    slides.forEach(
+        function (slide, index) {
+
+            slide.classList.remove(
+                "active"
+            );
+
+            slide.style.zIndex =
+                "0";
+
+
+            if (
+                index === 0
+            ) {
+
+                slide.classList.add(
+                    "active"
+                );
+
+                slide.style.zIndex =
+                    "2";
+
+            }
+
+        }
+    );
+
+
+
+    /*
+        Mulai dari Home1.
+    */
+
+    currentIndex = 0;
+
+
+
+    /*
+        Counter.
+    */
+
+    if (currentSlide) {
+
+        currentSlide.textContent =
+            "01";
+
+    }
+
+
+
+    /*
+        Mulai progress.
+    */
+
+    resetProgressBar();
+
+
+
+    /*
+        Foto berganti setiap
+        5 detik.
+    */
+
+    slideTimer =
+        setInterval(
+            changeSlide,
+            slideDuration
+        );
+
+}
+
+
+
+/* =====================================================
+   LOAD IMAGES
+===================================================== */
+
+preloadAllImages()
+    .then(
+        function () {
+
+            startSlideshow();
+
+        }
+    )
+    .catch(
+        function () {
+
+            startSlideshow();
+
+        }
+    );
+
+
+
+/* =====================================================
+   2. NAVBAR SCROLL EFFECT
+===================================================== */
+
+function updateNavbar() {
+
+    if (!navbar) {
+
+        return;
+
+    }
+
+
+    /*
+        Setelah scroll lebih dari
+        30px, aktifkan glass navbar.
+    */
+
+    if (
+        window.scrollY > 30
+    ) {
+
+        navbar.classList.add(
+            "scrolled"
+        );
+
+    } else {
+
+        navbar.classList.remove(
+            "scrolled"
+        );
+
+    }
+
+}
+
 
 
 window.addEventListener(
     "scroll",
-    heroParallax,
-    { passive: true }
+    updateNavbar,
+    {
+        passive: true
+    }
 );
 
 
-/* =========================================================
-   10. COMPANY CARD INTERACTION
-========================================================= */
 
-const companyCards =
-    document.querySelectorAll(".company-card");
+/*
+    Jalankan sekali saat halaman
+    pertama kali dibuka.
+*/
+
+updateNavbar();
 
 
-companyCards.forEach(card => {
 
-    card.addEventListener("click", function () {
+/* =====================================================
+   3. TYPING EFFECT
+===================================================== */
 
-        const company =
-            this.querySelector("h3");
+const roles = [
 
-        if (!company) return;
+    "Warehouse Staff",
 
-        const companyName =
-            company.textContent.trim();
+    "Event Staff",
 
-        console.log(
-            "Selected company:",
-            companyName
+    "Project Coordinator"
+
+];
+
+
+let roleIndex = 0;
+
+let letterIndex = 0;
+
+let deleting = false;
+
+
+const typeSpeed = 90;
+
+const deleteSpeed = 55;
+
+const pauseTime = 1800;
+
+
+
+/* =====================================================
+   TYPING ANIMATION
+===================================================== */
+
+function typingAnimation() {
+
+    if (!typingRole) {
+
+        return;
+
+    }
+
+
+
+    const currentRole =
+        roles[roleIndex];
+
+
+
+    /* =================================================
+       TYPING
+    ================================================== */
+
+    if (!deleting) {
+
+        typingRole.textContent =
+            currentRole.substring(
+                0,
+                letterIndex + 1
+            );
+
+
+        letterIndex++;
+
+
+        /*
+            Selesai mengetik.
+        */
+
+        if (
+            letterIndex >=
+            currentRole.length
+        ) {
+
+            deleting = true;
+
+
+            setTimeout(
+                typingAnimation,
+                pauseTime
+            );
+
+
+            return;
+
+        }
+
+
+        setTimeout(
+            typingAnimation,
+            typeSpeed
         );
 
-    });
 
-});
+        return;
+
+    }
 
 
-/* =========================================================
-   11. PREVENT IMAGE DRAGGING
-========================================================= */
 
-document.querySelectorAll("img").forEach(image => {
+    /* =================================================
+       DELETING
+    ================================================== */
 
-    image.setAttribute(
-        "draggable",
-        "false"
+    typingRole.textContent =
+        currentRole.substring(
+            0,
+            letterIndex - 1
+        );
+
+
+    letterIndex--;
+
+
+    /*
+        Selesai menghapus.
+    */
+
+    if (
+        letterIndex <= 0
+    ) {
+
+        letterIndex = 0;
+
+        deleting = false;
+
+
+        /*
+            Pindah ke role berikutnya.
+        */
+
+        roleIndex++;
+
+
+        if (
+            roleIndex >=
+            roles.length
+        ) {
+
+            roleIndex = 0;
+
+        }
+
+
+        setTimeout(
+            typingAnimation,
+            500
+        );
+
+
+        return;
+
+    }
+
+
+    setTimeout(
+        typingAnimation,
+        deleteSpeed
     );
-
-});
-
-
-/* =========================================================
-   12. YEAR AUTOMATIC
-========================================================= */
-
-const footerYear =
-    document.querySelector(".footer-right");
-
-if (footerYear) {
-
-    const currentYear =
-        new Date().getFullYear();
-
-    footerYear.textContent =
-        `© ${currentYear}`;
 
 }
 
 
-/* =========================================================
-   13. REDUCE MOTION SUPPORT
-========================================================= */
 
-const reduceMotion =
-    window.matchMedia(
-        "(prefers-reduced-motion: reduce)"
+/* =====================================================
+   START TYPING
+===================================================== */
+
+typingAnimation();
+
+
+
+/* =====================================================
+   4. MOBILE NAVIGATION
+===================================================== */
+
+if (
+    menuToggle &&
+    navMenu
+) {
+
+    menuToggle.addEventListener(
+        "click",
+        function () {
+
+            navMenu.classList.toggle(
+                "open"
+            );
+
+        }
     );
-
-
-if (reduceMotion.matches) {
-
-    document.documentElement.style.scrollBehavior =
-        "auto";
 
 }
 
 
-/* =========================================================
-   14. CONSOLE MESSAGE
-========================================================= */
 
-console.log(
-    "Niko Juliandarus Portfolio — Ready."
+/* =====================================================
+   5. CLOSE MOBILE MENU
+===================================================== */
+
+navLinks.forEach(
+    function (link) {
+
+        link.addEventListener(
+            "click",
+            function () {
+
+                if (navMenu) {
+
+                    navMenu.classList.remove(
+                        "open"
+                    );
+
+                }
+
+            }
+        );
+
+    }
 );
-```
+
+
+
+/* =====================================================
+   6. ACTIVE NAVIGATION
+===================================================== */
+
+navLinks.forEach(
+    function (link) {
+
+        link.addEventListener(
+            "click",
+            function () {
+
+                navLinks.forEach(
+                    function (item) {
+
+                        item.classList.remove(
+                            "active"
+                        );
+
+                    }
+                );
+
+
+                this.classList.add(
+                    "active"
+                );
+
+            }
+        );
+
+    }
+);
