@@ -1,204 +1,171 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="id">
 <head>
-
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andri Website</title>
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <link rel="stylesheet" href="style.css">
 
-    <title>Niko Juliandarus | Portfolio</title>
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <link
-        rel="stylesheet"
-        href="css/style.css"
-    >
-
+    <!-- Icon -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
-
 
 <body>
 
+<div class="container">
 
-    <!-- =================================================
-         NAVBAR
-    ================================================== -->
+    <!-- Header -->
 
-    <header class="navbar" id="navbar">
+    <header>
 
-        <a
-            href="#home"
-            class="logo"
-        >
-            NJ<span>.</span>
-        </a>
+        <h1>📦 ANDRI WEBSITE</h1>
 
-
-        <nav class="nav-menu">
-
-            <a
-                href="#home"
-                class="active"
-            >
-                Home
-            </a>
-
-            <a href="#about">
-                About
-            </a>
-
-            <a href="#experience">
-                Experience
-            </a>
-
-            <a href="#projects">
-                Projects
-            </a>
-
-            <a href="#gallery">
-                Gallery
-            </a>
-
-            <a href="#contact">
-                Contact
-            </a>
-
-        </nav>
-
-
-        <button
-            class="menu-toggle"
-            aria-label="Open navigation menu"
-        >
-
-            <span></span>
-            <span></span>
-            <span></span>
-
-        </button>
+        <p>Catatan Barang Event</p>
 
     </header>
 
 
+    <!-- Dashboard -->
 
-    <!-- =================================================
-         HOME
-    ================================================== -->
+    <section class="dashboard">
+
+        <div class="cardDashboard">
+
+            <h3>Total Barang</h3>
+
+            <span id="totalBarang">0</span>
+
+        </div>
+
+        <div class="cardDashboard konstruksi">
+
+            <h3>Kontruksi</h3>
+
+            <span id="totalKontruksi">0</span>
+
+        </div>
+
+        <div class="cardDashboard furniture">
+
+            <h3>Furniture</h3>
+
+            <span id="totalFurniture">0</span>
+
+        </div>
+
+        <div class="cardDashboard electric">
+
+            <h3>Electric</h3>
+
+            <span id="totalElectric">0</span>
+
+        </div>
+
+    </section>
+
+
+    <!-- Search -->
+
+    <section class="searchBox">
+
+        <input
+        type="text"
+        id="search"
+        placeholder="Cari Barang...">
+
+    </section>
+
+
+    <!-- Form -->
+
+    <section class="formBox">
+
+        <select id="kategori">
+
+            <option value="Kontruksi">Kontruksi</option>
+
+            <option value="Furniture">Furniture</option>
+
+            <option value="Electric">Electric</option>
+
+        </select>
+
+
+        <input
+        type="text"
+        id="namaBarang"
+        placeholder="Nama Barang">
+
+
+        <input
+        type="number"
+        id="jumlahBarang"
+        placeholder="Jumlah">
+
+
+        <button id="btnTambah">
+
+            <i class="fa-solid fa-plus"></i>
+
+            Tambah Barang
+
+        </button>
+
+    </section>
+
+
+    <!-- Menu -->
+
+    <section class="menuKategori">
+
+        <button onclick="scrollKategori('kontruksiArea')">
+
+            🟦 Kontruksi
+
+        </button>
+
+        <button onclick="scrollKategori('furnitureArea')">
+
+            🟩 Furniture
+
+        </button>
+
+        <button onclick="scrollKategori('electricArea')">
+
+            🟨 Electric
+
+        </button>
+
+    </section>
+
+
+
+    <!-- KONTRUKSI -->
 
     <section
-        id="home"
-        class="hero"
-    >
+    id="kontruksiArea"
+    class="kategori">
 
-        <div class="hero-background">
+        <div class="judulKategori">
 
-            <img
-                src="assets/images/home1.jpg"
-                class="hero-slide active"
-                alt=""
-            >
+            <h2>🟦 KONTRUKSI</h2>
 
-            <img
-                src="assets/images/home2.jpg"
-                class="hero-slide"
-                alt=""
-            >
+            <span id="jumlahKontruksi">
 
-            <img
-                src="assets/images/home3.jpg"
-                class="hero-slide"
-                alt=""
-            >
+                0 Barang
 
-        </div>
-
-
-        <div class="hero-overlay"></div>
-
-
-        <div class="hero-content">
-
-            <p class="hero-label">
-                PROFESSIONAL PORTFOLIO
-            </p>
-
-
-            <h1>
-                Niko Juliandarus
-            </h1>
-
-
-            <div class="hero-role">
-
-                <span id="typing-role"></span>
-
-                <span class="cursor">
-                    |
-                </span>
-
-            </div>
-
-
-            <p class="hero-description">
-                Warehouse Operations & Event Coordinator
-            </p>
-
-
-            <a
-                href="#experience"
-                class="hero-button"
-            >
-
-                <span>
-                    Explore My Experience
-                </span>
-
-                <span>
-                    ↓
-                </span>
-
-            </a>
-
-        </div>
-
-
-        <div class="hero-bottom">
-
-            <span>
-                Scroll to explore
-            </span>
-
-            <span>
-                2026
             </span>
 
         </div>
 
-
-        <div class="slide-counter">
-
-            <span id="current-slide">
-                01
-            </span>
-
-            <span class="counter-line"></span>
-
-            <span>
-                03
-            </span>
-
-        </div>
-
-
-        <div class="slide-progress">
-
-            <div
-                class="slide-progress-bar"
-                id="slide-progress-bar"
-            ></div>
+        <div
+        id="listKontruksi"
+        class="listBarang">
 
         </div>
 
@@ -206,135 +173,27 @@
 
 
 
-    <!-- =================================================
-         ABOUT
-    ================================================== -->
+    <!-- FURNITURE -->
 
     <section
-        id="about"
-        class="about-section"
-    >
+    id="furnitureArea"
+    class="kategori">
 
-        <div class="about-container">
+        <div class="judulKategori">
 
+            <h2>🟩 FURNITURE</h2>
 
-            <!-- FOTO -->
+            <span id="jumlahFurniture">
 
-            <div class="about-photo">
+                0 Barang
 
-                <div class="photo-frame">
+            </span>
 
-                    <img
-                        src="assets/images/profile.jpg"
-                        alt="Niko Juliandarus"
-                    >
+        </div>
 
-                </div>
-
-            </div>
-
-
-
-            <!-- TEXT -->
-
-            <div class="about-content">
-
-                <p class="section-label">
-                    ABOUT ME
-                </p>
-
-
-                <h2>
-                    From warehouse operations to event supervision.
-                </h2>
-
-
-                <p class="about-text">
-
-                    Saya Niko Juliandarus, lulusan SMK Teknik Komputer & Jaringan dengan hampir dua tahun pengalaman di gudang perusahaan kontraktor pameran (Maximando). Terbiasa mengelola siklus barang dari awal masuk, penyimpanan, sampai keluar untuk event.
-
-                </p>
-
-
-                <p class="about-text">
-
-                    Kuat dalam stock opname, mencatat masuk-keluar barang, serta mendokumentasikan selisih barang setelah event selesai. Aktif melakukan perawatan rutin barang gudang agar kondisi tetap layak pakai, dan berperan sebagai supervisor semua event Maxima berlangsung. Mampu bekerja di bawah tekanan.
-
-                </p>
-
-
-
-                <!-- QUICK INFORMATION -->
-
-                <div class="about-info">
-
-
-                    <div class="info-item">
-
-                        <span class="info-number">
-                            01
-                        </span>
-
-                        <div>
-
-                            <strong>
-                                Warehouse
-                            </strong>
-
-                            <small>
-                                Operations & Support
-                            </small>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="info-item">
-
-                        <span class="info-number">
-                            02
-                        </span>
-
-                        <div>
-
-                            <strong>
-                                Events
-                            </strong>
-
-                            <small>
-                                Supervision & Coordination
-                            </small>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="info-item">
-
-                        <span class="info-number">
-                            03
-                        </span>
-
-                        <div>
-
-                            <strong>
-                                Projects
-                            </strong>
-
-                            <small>
-                                Inventory & Logistics
-                            </small>
-
-                        </div>
-
-                    </div>
-
-
-                </div>
-
-            </div>
+        <div
+        id="listFurniture"
+        class="listBarang">
 
         </div>
 
@@ -342,37 +201,152 @@
 
 
 
-    <!-- =================================================
-         FUTURE SECTIONS
-    ================================================== -->
+    <!-- ELECTRIC -->
 
     <section
-        id="experience"
-        class="empty-section"
-    ></section>
+    id="electricArea"
+    class="kategori">
+
+        <div class="judulKategori">
+
+            <h2>🟨 ELECTRIC</h2>
+
+            <span id="jumlahElectric">
+
+                0 Barang
+
+            </span>
+
+        </div>
+
+        <div
+        id="listElectric"
+        class="listBarang">
+
+        </div>
+
+    </section>
 
 
-    <section
-        id="projects"
-        class="empty-section"
-    ></section>
+
+    <!-- Bottom Menu -->
+
+    <div class="bottomMenu">
+
+        <button id="btnBackup">
+
+            <i class="fa-solid fa-download"></i>
+
+        </button>
+
+        <button id="btnRestore">
+
+            <i class="fa-solid fa-upload"></i>
+
+        </button>
+
+        <button id="btnDark">
+
+            <i class="fa-solid fa-moon"></i>
+
+        </button>
+
+        <button id="btnReset">
+
+            <i class="fa-solid fa-trash"></i>
+
+        </button>
+
+    </div>
 
 
-    <section
-        id="gallery"
-        class="empty-section"
-    ></section>
 
-
-    <section
-        id="contact"
-        class="empty-section"
-    ></section>
+</div>
 
 
 
-    <script src="js/script.js"></script>
+<!-- Template Card -->
+
+<template id="barangTemplate">
+
+<div class="barangCard">
+
+    <div class="atas">
+
+        <h3 class="namaBarang"></h3>
+
+        <button class="favorit">
+
+            ⭐
+
+        </button>
+
+    </div>
+
+
+    <p>
+
+        Jumlah :
+
+        <span class="jumlahBarang">
+
+        </span>
+
+    </p>
+
+
+    <div class="quickButton">
+
+        <button class="minus5">
+
+            -5
+
+        </button>
+
+        <button class="minus1">
+
+            -1
+
+        </button>
+
+        <button class="plus1">
+
+            +1
+
+        </button>
+
+        <button class="plus5">
+
+            +5
+
+        </button>
+
+    </div>
+
+
+    <div class="aksi">
+
+        <button class="edit">
+
+            ✏ Edit
+
+        </button>
+
+        <button class="hapus">
+
+            🗑 Hapus
+
+        </button>
+
+    </div>
+
+</div>
+
+</template>
+
+
+
+<script src="app.js"></script>
 
 </body>
-
 </html>
