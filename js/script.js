@@ -536,9 +536,9 @@ const roles = [
 
     "Warehouse Staff",
 
-    "Event Staff",
+    "Event Supervisor",
 
-    "Project Coordinator"
+    "Logistics Coordinator"
 
 ];
 
