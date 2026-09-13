@@ -1539,7 +1539,7 @@ button {
 
 .project-visual {
     position: relative;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 16 / 9;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1549,6 +1549,13 @@ button {
         linear-gradient(135deg, rgba(255,255,255,.07), transparent 45%),
         #111;
     transition: transform .35s ease, border-color .35s ease;
+}
+
+.project-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
 }
 
 .project-visual::after {
