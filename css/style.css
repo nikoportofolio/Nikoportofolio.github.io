@@ -1539,7 +1539,7 @@ button {
 
 .project-visual {
     position: relative;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 4 / 3;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1549,13 +1549,6 @@ button {
         linear-gradient(135deg, rgba(255,255,255,.07), transparent 45%),
         #111;
     transition: transform .35s ease, border-color .35s ease;
-}
-
-.project-visual img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    display: block;
 }
 
 .project-visual::after {
@@ -1666,3 +1659,26 @@ button {
         font-size: 21px;
     }
 }
+
+
+/* =====================================================
+   GALLERY — MASONRY
+===================================================== */
+.gallery-section { min-height:auto; padding:120px 7vw 140px; background:#0a0a0a; }
+.gallery-container { max-width:1280px; margin:0 auto; }
+.gallery-heading { max-width:760px; margin-bottom:70px; }
+.gallery-heading h2 { margin:0 0 24px; font-size:clamp(34px,4.5vw,64px); line-height:1.08; font-weight:400; letter-spacing:-2px; }
+.gallery-intro { max-width:650px; margin:0; color:rgba(255,255,255,.52); font-size:13px; line-height:1.8; }
+.gallery-masonry { column-count:3; column-gap:22px; }
+.gallery-item { break-inside:avoid; margin-bottom:22px; width:100%; }
+.gallery-placeholder { position:relative; min-height:260px; display:flex; align-items:center; justify-content:center; overflow:hidden; border:1px solid rgba(255,255,255,.10); background:linear-gradient(135deg,rgba(255,255,255,.07),transparent 45%),#111; transition:transform .35s ease,border-color .35s ease; }
+.gallery-placeholder::after { content:""; position:absolute; inset:12px; border:1px solid rgba(255,255,255,.05); pointer-events:none; }
+.gallery-placeholder span { position:absolute; top:18px; left:18px; font-size:10px; letter-spacing:2px; color:rgba(255,255,255,.42); }
+.gallery-placeholder p { margin:0; font-size:9px; letter-spacing:3px; color:rgba(255,255,255,.25); }
+.gallery-tall { min-height:380px; }
+.gallery-wide { min-height:300px; }
+.gallery-placeholder:hover { transform:translateY(-5px); border-color:rgba(255,255,255,.28); }
+.gallery-item img { width:100%; height:auto; display:block; }
+@media (max-width:900px) { .gallery-masonry { column-count:2; } }
+@media (max-width:600px) { .gallery-section { padding:90px 7vw 100px; } .gallery-heading { margin-bottom:48px; } .gallery-heading h2 { font-size:clamp(31px,9vw,42px); letter-spacing:-1.2px; } .gallery-intro { font-size:12px; line-height:1.75; } .gallery-masonry { column-count:1; } .gallery-item,.gallery-tall,.gallery-wide { min-height:280px; margin-bottom:18px; } }
+
