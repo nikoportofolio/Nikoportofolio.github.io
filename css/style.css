@@ -1551,6 +1551,13 @@ button {
     transition: transform .35s ease, border-color .35s ease;
 }
 
+.project-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
 .project-visual::after {
     content: "";
     position: absolute;
