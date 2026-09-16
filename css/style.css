@@ -1701,16 +1701,24 @@ button {
 
 /* True Masonry */
 .gallery-masonry {
-    column-count: 3;
-    column-gap: 18px;
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    width: 100%;
+}
+
+.gallery-column {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
 }
 
 .gallery-item {
-    display: inline-block;
     width: 100%;
-    margin: 0 0 18px;
-    break-inside: avoid;
-    -webkit-column-break-inside: avoid;
+    margin: 0;
+    overflow: hidden;
 }
 
 .gallery-item img {
@@ -1718,7 +1726,6 @@ button {
     width: 100%;
     height: auto;
     object-fit: contain;
-    vertical-align: middle;
     transition: transform .45s ease;
 }
 
@@ -1735,12 +1742,11 @@ button {
     }
 
     .gallery-masonry {
-        column-count: 2;
-        column-gap: 16px;
+        gap: 16px;
     }
 
-    .gallery-item {
-        margin-bottom: 16px;
+    .gallery-column {
+        gap: 16px;
     }
 }
 
@@ -1766,11 +1772,18 @@ button {
     }
 
     .gallery-masonry {
-        column-count: 1;
+        display: block;
     }
 
-    .gallery-item {
+    .gallery-column {
+        display: flex;
+        width: 100%;
+        gap: 14px;
         margin-bottom: 14px;
+    }
+
+    .gallery-column + .gallery-column {
+        display: none;
     }
 }
 
