@@ -782,3 +782,161 @@ navLinks.forEach(
 
     }
 );
+
+
+/* =========================
+   TRUE GALLERY MASONRY
+========================= */
+
+(function () {
+
+    const gallery = document.querySelector('.gallery-masonry');
+
+    if (!gallery) return;
+
+    let originalItems = Array.from(
+        gallery.querySelectorAll('.gallery-item')
+    );
+
+    let currentColumns = 0;
+
+    function getColumnCount() {
+        if (window.innerWidth <= 600) {
+            return 1;
+        }
+
+        if (window.innerWidth <= 900) {
+            return 2;
+        }
+
+        return 3;
+    }
+
+    function buildMasonry() {
+
+        const columnCount = getColumnCount();
+
+        if (columnCount === currentColumns) {
+            return;
+        }
+
+        currentColumns = columnCount;
+
+        /* Restore original items */
+        originalItems.forEach(item => {
+            gallery.appendChild(item);
+        });
+
+        /* Remove old columns */
+        gallery.querySelectorAll('.gallery-column').forEach(column => {
+            column.remove();
+        });
+
+        /* Mobile */
+        if (columnCount === 1) {
+            originalItems.forEach(item => {
+                gallery.appendChild(item);
+            });
+
+            return;
+        }
+
+        /* Create columns */
+        const columns = [];
+
+        for (let i = 0; i < columnCount; i++) {
+
+            const column = document.createElement('div');
+
+            column.className = 'gallery-column';
+
+            columns.push(column);
+
+            gallery.appendChild(column);
+        }
+
+        /* Put each image into the shortest column */
+        originalItems.forEach(item => {
+
+            let shortestColumn = columns[0];
+
+            columns.forEach(column => {
+
+                if (
+                    column.getBoundingClientRect().height <
+                    shortestColumn.getBoundingClientRect().height
+                ) {
+                    shortestColumn = column;
+                }
+
+            });
+
+            shortestColumn.appendChild(item);
+        });
+    }
+
+    function waitForImages() {
+
+        const images = gallery.querySelectorAll('img');
+
+        let loaded = 0;
+
+        if (images.length === 0) {
+            buildMasonry();
+            return;
+        }
+
+        images.forEach(img => {
+
+            if (img.complete) {
+
+                loaded++;
+
+                if (loaded === images.length) {
+                    buildMasonry();
+                }
+
+            } else {
+
+                img.addEventListener('load', function () {
+
+                    loaded++;
+
+                    if (loaded === images.length) {
+                        buildMasonry();
+                    }
+
+                }, { once: true });
+
+                img.addEventListener('error', function () {
+
+                    loaded++;
+
+                    if (loaded === images.length) {
+                        buildMasonry();
+                    }
+
+                }, { once: true });
+            }
+        });
+    }
+
+    waitForImages();
+
+    let resizeTimer;
+
+    window.addEventListener('resize', function () {
+
+        clearTimeout(resizeTimer);
+
+        resizeTimer = setTimeout(function () {
+
+            currentColumns = 0;
+
+            buildMasonry();
+
+        }, 200);
+
+    });
+
+})();
