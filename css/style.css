@@ -1667,15 +1667,10 @@ button {
     }
 }
 
-
-/* =====================================================
-   GALLERY — MASONRY
-===================================================== */
-
+/* Gallery */
 .gallery-section {
-    min-height: auto;
-    padding: 120px 7vw 140px;
-    background: #0a0a0a;
+    padding: 120px 7vw 110px;
+    background: #050505;
 }
 
 .gallery-container {
@@ -1683,113 +1678,91 @@ button {
     margin: 0 auto;
 }
 
-
-/* =========================
-   GALLERY HEADING
-========================= */
-
 .gallery-heading {
     max-width: 760px;
-    margin-bottom: 70px;
+    margin-bottom: 60px;
 }
 
 .gallery-heading h2 {
-    margin: 0 0 24px;
-    font-size: clamp(34px, 4.5vw, 64px);
-    line-height: 1.08;
+    margin: 0 0 22px;
+    font-size: clamp(42px, 6vw, 78px);
+    line-height: 1;
     font-weight: 400;
-    letter-spacing: -2px;
+    letter-spacing: -3px;
 }
 
 .gallery-intro {
-    max-width: 650px;
+    max-width: 600px;
     margin: 0;
-    color: rgba(255, 255, 255, 0.52);
-    font-size: 13px;
+    color: rgba(255,255,255,.52);
+    font-size: 14px;
     line-height: 1.8;
 }
 
-
-/* =========================
-   MASONRY
-========================= */
-
+/* True Masonry */
 .gallery-masonry {
     column-count: 3;
-    column-gap: 22px;
+    column-gap: 18px;
 }
 
 .gallery-item {
+    display: inline-block;
     width: 100%;
-    margin-bottom: 22px;
-
+    margin: 0 0 18px;
     break-inside: avoid;
     -webkit-column-break-inside: avoid;
-
-    overflow: hidden;
 }
-
-
-/* =========================
-   IMAGE
-========================= */
 
 .gallery-item img {
     display: block;
-
     width: 100%;
     height: auto;
-
     object-fit: contain;
-
-    transition: transform 0.45s ease;
+    vertical-align: middle;
+    transition: transform .45s ease;
 }
-
-
-/* =========================
-   HOVER
-========================= */
 
 .gallery-item:hover img {
     transform: scale(1.025);
 }
 
 
-/* =========================
-   TABLET
-========================= */
-
+/* Tablet */
 @media (max-width: 900px) {
+
+    .gallery-section {
+        padding: 90px 7vw 80px;
+    }
 
     .gallery-masonry {
         column-count: 2;
+        column-gap: 16px;
     }
 
+    .gallery-item {
+        margin-bottom: 16px;
+    }
 }
 
 
-/* =========================
-   MOBILE
-========================= */
-
+/* Mobile */
 @media (max-width: 600px) {
 
     .gallery-section {
-        padding: 90px 7vw 100px;
+        padding: 80px 7vw 65px;
     }
 
     .gallery-heading {
-        margin-bottom: 48px;
+        margin-bottom: 42px;
     }
 
     .gallery-heading h2 {
-        font-size: clamp(31px, 9vw, 42px);
-        letter-spacing: -1.2px;
+        font-size: clamp(38px, 11vw, 52px);
+        letter-spacing: -2px;
     }
 
     .gallery-intro {
         font-size: 12px;
-        line-height: 1.75;
     }
 
     .gallery-masonry {
@@ -1797,9 +1770,8 @@ button {
     }
 
     .gallery-item {
-        margin-bottom: 18px;
+        margin-bottom: 14px;
     }
-
 }
 
 /* Contact */
