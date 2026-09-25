@@ -940,3 +940,72 @@ navLinks.forEach(
     });
 
 })();
+
+/* =====================================================
+   PROJECT DETAIL
+   - Tidak mengubah text/HTML project asli.
+   - Card project diarahkan ke project.html melalui JS.
+===================================================== */
+
+(function setupProjectDetails() {
+
+    const projectCards = document.querySelectorAll(".project-card");
+
+    if (!projectCards.length) {
+        return;
+    }
+
+    const projectMap = {
+        "Inamarine": "inamarine",
+        "Indonesia Technology & Innovation": "technology",
+        "Indonesia Energy & Engineering Series": "iee",
+        "ALLPack Indonesia": "allpack",
+        "Plastics & Rubber Indonesia": "plastics-rubber",
+        "Manufacturing Indonesia": "manufacturing",
+        "BigBang 2025-2026": "bigbang",
+        "Uni-Global Retail Exhibition": "uni-global"
+    };
+
+    projectCards.forEach(function(card) {
+
+        const titleElement = card.querySelector(".project-info h3");
+
+        if (!titleElement) {
+            return;
+        }
+
+        const title = titleElement.textContent.trim();
+        const projectId = projectMap[title];
+
+        if (!projectId) {
+            return;
+        }
+
+        card.setAttribute("role", "link");
+        card.setAttribute("tabindex", "0");
+        card.setAttribute("aria-label", "Lihat detail proyek " + title);
+
+        card.addEventListener("click", function() {
+            window.location.href =
+                "project.html?id=" +
+                encodeURIComponent(projectId);
+        });
+
+        card.addEventListener("keydown", function(event) {
+
+            if (
+                event.key === "Enter" ||
+                event.key === " "
+            ) {
+                event.preventDefault();
+
+                window.location.href =
+                    "project.html?id=" +
+                    encodeURIComponent(projectId);
+            }
+
+        });
+
+    });
+
+})();
