@@ -1042,3 +1042,29 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   });
 });
+
+
+// Email //
+document.addEventListener("DOMContentLoaded", function () {
+  var emailLinks = document.querySelectorAll(".email-link");
+
+  emailLinks.forEach(function (link) {
+    link.addEventListener("click", function (e) {
+      var email = link.getAttribute("data-email");
+      var isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+      if (isMobile) {
+        // Di HP: buka aplikasi email bawaan
+        window.location.href = "mailto:" + email;
+        e.preventDefault();
+      } else {
+        // Di PC: buka Gmail web
+        window.open(
+          "https://mail.google.com/mail/?view=cm&fs=1&to=" + email,
+          "_blank"
+        );
+        e.preventDefault();
+      }
+    });
+  });
+});
