@@ -1009,3 +1009,28 @@ navLinks.forEach(
     });
 
 })();
+
+// Fungsi untuk memaksa download file
+function forceDownload(event, url, filename) {
+  event.preventDefault();
+
+  fetch(url)
+    .then(function (res) {
+      if (!res.ok) throw new Error("File tidak ditemukan");
+      return res.blob();
+    })
+    .then(function (blob) {
+      var a = document.createElement("a");
+      var objectUrl = URL.createObjectURL(blob);
+      a.href = objectUrl;
+      a.download = filename || "NikoJuliandarus-CV.pdf";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(objectUrl);
+    })
+    .catch(function () {
+      // Fallback: buka di tab baru kalau gagal
+      window.open(url, "_blank");
+    });
+}
