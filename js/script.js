@@ -1010,6 +1010,8 @@ navLinks.forEach(
 
 })();
 
+
+// Download Cv //
 document.addEventListener("DOMContentLoaded", function () {
   var btn = document.getElementById("btn-download-cv");
   if (!btn) return;
