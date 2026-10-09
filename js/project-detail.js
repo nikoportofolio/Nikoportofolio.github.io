@@ -48,6 +48,12 @@ const projects = {
         category: "EXHIBITION PROJECT",
         cover: "assets/images/uniglobal.jpg",
         processFolder: "assets/images/projects/uni-global/"
+    }, 
+    "asiabike": {
+        title: "AsiaBike",
+        category: "EXHIBITION PROJECT",
+        cover: "assets/images/Asiabike.jpg",
+        processFolder: "assets/images/projects/asiabike/"
     }
 };
 
