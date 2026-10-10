@@ -4,62 +4,72 @@ const projects = {
     "inamarine": {
         title: "Inamarine",
         category: "EXHIBITION PROJECT",
-        cover: "assets/images/inamarine.jpg",
-        processFolder: "assets/images/projects/inamarine/"
+        cover: "assets/images/Inamarine.jpg",
+        processFolder: "assets/images/projects/inamarine/",
+        processPrefix: "Inamarine"
     },
     "technology": {
         title: "Indonesia Technology & Innovation",
         category: "EXHIBITION PROJECT",
-        cover: "assets/images/inti.jpg",
-        processFolder: "assets/images/projects/technology/"
+        cover: "assets/images/Inti.jpg",
+        processFolder: "assets/images/projects/technology/",
+        processPrefix: "Inti"
     },
     "iee": {
         title: "Indonesia Energy & Engineering Series",
         category: "EXHIBITION PROJECT",
-        cover: "assets/images/IEE.jpg",
-        processFolder: "assets/images/projects/iee/"
+        cover: "assets/images/Iee.jpg",
+        processFolder: "assets/images/projects/iee/",
+        processPrefix: "Iee"
     },
     "allpack": {
         title: "ALLPack Indonesia",
         category: "EXHIBITION PROJECT",
-        cover: "",
-        processFolder: "assets/images/projects/allpack/"
+        cover: "assets/images/Allpack.jpg",
+        processFolder: "assets/images/projects/allpack/",
+        processPrefix: "Allpack"
     },
     "plastics-rubber": {
         title: "Plastics & Rubber Indonesia",
         category: "EXHIBITION PROJECT",
-        cover: "assets/images/pri.jpg",
-        processFolder: "assets/images/projects/plastics-rubber/"
+        cover: "assets/images/Pri.jpg",
+        processFolder: "assets/images/projects/plastics-rubber/",
+        processPrefix: "Pri"
     },
     "manufacturing": {
         title: "Manufacturing Indonesia",
         category: "EXHIBITION PROJECT",
-        cover: "assets/images/mfi.jpg",
-        processFolder: "assets/images/projects/manufacturing/"
+        cover: "assets/images/Manufacturing.jpg",
+        processFolder: "assets/images/projects/manufacturing/",
+        processPrefix: "Manufacturing"
     },
     "bigbang": {
-        title: "BigBang 2025-2026",
+        title: "BigBang Festival",
         category: "EXHIBITION PROJECT",
         cover: "assets/images/bigbang.jpg",
-        processFolder: "assets/images/projects/bigbang/"
+        processFolder: "assets/images/projects/bigbang/",
+        processPrefix: "Bigbang"
     },
     "uni-global": {
         title: "Uni-Global Retail Exhibition",
         category: "EXHIBITION PROJECT",
         cover: "assets/images/uniglobal.jpg",
-        processFolder: "assets/images/projects/uni-global/"
-    }, 
+        processFolder: "assets/images/projects/uni-global/",
+        processPrefix: "Uniglobal"
+    },
     "asiabike": {
-        title: "AsiaBike",
+        title: "Asia Bike",
         category: "EXHIBITION PROJECT",
         cover: "assets/images/Asiabike.jpg",
-        processFolder: "assets/images/projects/asiabike/"
-    }, 
+        processFolder: "assets/images/projects/asiabike/",
+        processPrefix: "Asiabike"
+    },
     "csi": {
-        title: "CyberSecIndonesia",
+        title: "Cyber Sec Indonesia",
         category: "EXHIBITION PROJECT",
         cover: "assets/images/Csi.jpg",
-        processFolder: "assets/images/projects/csi/"
+        processFolder: "assets/images/projects/csi/",
+        processPrefix: "Csi"
     }
 };
 
@@ -206,21 +216,19 @@ function probeImage(path) {
 
 async function findProcessImage(index) {
     const extensions = ["jpg", "jpeg", "png", "webp"];
+    const number = String(index).padStart(2, "0");
+    const prefix = project.processPrefix || "process-";
 
-    const candidates = extensions.map(function(extension) {
-        return (
-            project.processFolder +
-            "process-" +
-            index +
-            "." +
-            extension
-        );
+    // Support the actual image names already present in the project folders,
+    // e.g. Allpack01.jpg, Iee01.jpg, Inamarine01.jpg.
+    const candidates = [];
+    extensions.forEach(function(extension) {
+        candidates.push(project.processFolder + prefix + number + "." + extension);
+        candidates.push(project.processFolder + prefix + index + "." + extension);
+        candidates.push(project.processFolder + "process-" + index + "." + extension);
     });
 
-    const results = await Promise.all(
-        candidates.map(probeImage)
-    );
-
+    const results = await Promise.all(candidates.map(probeImage));
     return results.find(Boolean) || null;
 }
 
