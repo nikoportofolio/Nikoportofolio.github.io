@@ -534,11 +534,11 @@ updateNavbar();
 
 const roles = [
 
-    "Warehouse Staff",
+    "Exhibition Operations",
 
-    "Event PIC",
+    "Warehouse Operations",
 
-    "Logistics Coordinator"
+    "Event PIC"
 
 ];
 
@@ -962,11 +962,8 @@ navLinks.forEach(
         "ALLPack Indonesia": "allpack",
         "Plastics & Rubber Indonesia": "plastics-rubber",
         "Manufacturing Indonesia": "manufacturing",
-        "BigBang Festival": "bigbang",
         "BigBang 2025-2026": "bigbang",
-        "Uni-Global Retail Exhibition": "uni-global",
-        "Asia Bike": "asiabike",
-        "Cyber Sec Indonesia": "csi"
+        "Uni-Global Retail Exhibition": "uni-global"
     };
 
     projectCards.forEach(function(card) {
