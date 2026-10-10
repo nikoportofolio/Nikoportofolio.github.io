@@ -44,7 +44,7 @@ const projects = {
         process: ['Manufacturing01.jpg', 'Manufacturing02.jpg', 'Manufacturing03.jpg', 'Manufacturing04.jpg', 'Manufacturing05.jpg', 'Manufacturing06.jpg', 'Manufacturing07.jpg', 'Manufacturing08.jpg', 'Manufacturing09.jpg', 'Manufacturing10.jpg']
     },
     "bigbang": {
-        title: "BigBang 2025-2026",
+        title: "BigBang Festival",
         category: "EXHIBITION PROJECT",
         cover: "assets/images/bigbang.jpg",
         processFolder: "assets/images/projects/bigbang/",
