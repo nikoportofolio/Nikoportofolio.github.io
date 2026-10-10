@@ -2,73 +2,73 @@ const PROCESS_PHOTO_LIMIT = 30;
 
 const projects = {
     "inamarine": {
-        title: 'Inamarine',
-        category: 'EXHIBITION PROJECT',
-        cover: 'assets/images/Inamarine.jpg',
-        processFolder: 'assets/images/projects/inamarine/',
+        title: "Inamarine",
+        category: "EXHIBITION PROJECT",
+        cover: "assets/images/Inamarine.jpg",
+        processFolder: "assets/images/projects/inamarine/",
         process: ['Inamarine01.jpg', 'Inamarine02.jpg', 'Inamarine03.jpg', 'Inamarine04.jpg', 'Inamarine05.jpg']
     },
     "technology": {
-        title: 'Indonesia Technology & Innovation',
-        category: 'EXHIBITION PROJECT',
-        cover: 'assets/images/Inti.jpg',
-        processFolder: 'assets/images/projects/technology/',
+        title: "Indonesia Technology & Innovation",
+        category: "EXHIBITION PROJECT",
+        cover: "assets/images/Inti.jpg",
+        processFolder: "assets/images/projects/technology/",
         process: ['Inti01.jpg', 'Inti02.jpg', 'Inti03.jpg', 'Inti04.jpg', 'Inti05.jpg', 'Inti06.jpg', 'Inti07.jpg', 'Inti08.jpg']
     },
     "iee": {
-        title: 'Indonesia Energy & Engineering Series',
-        category: 'EXHIBITION PROJECT',
-        cover: 'assets/images/Iee.jpg',
-        processFolder: 'assets/images/projects/iee/',
+        title: "Indonesia Energy & Engineering Series",
+        category: "EXHIBITION PROJECT",
+        cover: "assets/images/Iee.jpg",
+        processFolder: "assets/images/projects/iee/",
         process: ['Iee01.jpg', 'Iee02.jpg', 'Iee03.jpg', 'Iee04.jpg', 'Iee05.jpg', 'Iee06.jpg', 'Iee07.jpg', 'Iee08.jpg', 'Iee09.jpg']
     },
     "allpack": {
-        title: 'ALLPack Indonesia',
-        category: 'EXHIBITION PROJECT',
-        cover: 'assets/images/Allpack.jpg',
-        processFolder: 'assets/images/projects/allpack/',
+        title: "ALLPack Indonesia",
+        category: "EXHIBITION PROJECT",
+        cover: "assets/images/Allpack.jpg",
+        processFolder: "assets/images/projects/allpack/",
         process: ['Allpack01.jpg', 'Allpack02.jpg', 'Allpack03.jpg', 'Allpack04.jpg', 'Allpack05.jpg', 'Allpack06.jpg', 'Allpack07.jpg', 'Allpack08.jpg', 'Allpack09.jpg', 'Allpack10.jpg', 'Allpack11.jpg', 'Allpack12.jpg', 'Allpack13.jpg', 'Allpack14.jpg', 'Allpack15.jpg', 'Allpack16.jpg', 'Allpack17.jpg']
     },
     "plastics-rubber": {
-        title: 'Plastics & Rubber Indonesia',
-        category: 'EXHIBITION PROJECT',
-        cover: 'assets/images/Pri.jpg',
-        processFolder: 'assets/images/projects/plastics-rubber/',
+        title: "Plastics & Rubber Indonesia",
+        category: "EXHIBITION PROJECT",
+        cover: "assets/images/Pri.jpg",
+        processFolder: "assets/images/projects/plastics-rubber/",
         process: ['Pri01.jpg', 'Pri02.jpg', 'Pri03.jpg', 'Pri04.jpg', 'Pri05.jpg', 'Pri06.jpg', 'Pri07.jpg', 'Pri08.jpg', 'Pri09.jpg', 'Pri10.jpg']
     },
     "manufacturing": {
-        title: 'Manufacturing Indonesia',
-        category: 'EXHIBITION PROJECT',
-        cover: 'assets/images/Manufacturing.jpg',
-        processFolder: 'assets/images/projects/manufacturing/',
+        title: "Manufacturing Indonesia",
+        category: "EXHIBITION PROJECT",
+        cover: "assets/images/Manufacturing.jpg",
+        processFolder: "assets/images/projects/manufacturing/",
         process: ['Manufacturing01.jpg', 'Manufacturing02.jpg', 'Manufacturing03.jpg', 'Manufacturing04.jpg', 'Manufacturing05.jpg', 'Manufacturing06.jpg', 'Manufacturing07.jpg', 'Manufacturing08.jpg', 'Manufacturing09.jpg', 'Manufacturing10.jpg']
     },
     "bigbang": {
-        title: 'BigBang Festival',
-        category: 'EXHIBITION PROJECT',
-        cover: 'assets/images/bigbang.jpg',
-        processFolder: 'assets/images/projects/bigbang/',
+        title: "BigBang 2025-2026",
+        category: "EXHIBITION PROJECT",
+        cover: "assets/images/bigbang.jpg",
+        processFolder: "assets/images/projects/bigbang/",
         process: ['Bigbang01.jpg', 'Bigbang02.jpg', 'Bigbang03.jpg', 'Bigbang04.jpg', 'Bigbang05.jpg', 'Bigbang06.jpg', 'Bigbang07.jpg', 'Bigbang08.jpg']
     },
     "uni-global": {
-        title: 'Uni-Global Retail Exhibition',
-        category: 'EXHIBITION PROJECT',
-        cover: 'assets/images/uniglobal.jpg',
-        processFolder: 'assets/images/projects/uni-global/',
+        title: "Uni-Global Retail Exhibition",
+        category: "EXHIBITION PROJECT",
+        cover: "assets/images/uniglobal.jpg",
+        processFolder: "assets/images/projects/uni-global/",
         process: ['Uniglobal01.jpg', 'Uniglobal02.jpg', 'Uniglobal03.jpg', 'Uniglobal04.jpg', 'Uniglobal05.jpg', 'Uniglobal06.jpg', 'Uniglobal07.jpg', 'Uniglobal08.jpg', 'Uniglobal09.jpg', 'Uniglobal10.jpg']
-    },
+    }, 
     "asiabike": {
-        title: 'Asia Bike',
-        category: 'EXHIBITION PROJECT',
-        cover: 'assets/images/Asiabike.jpg',
-        processFolder: 'assets/images/projects/asiabike/',
+        title: "AsiaBike",
+        category: "EXHIBITION PROJECT",
+        cover: "assets/images/Asiabike.jpg",
+        processFolder: "assets/images/projects/asiabike/",
         process: ['Asiabike01.jpg', 'Asiabike02.jpg', 'Asiabike03.jpg', 'Asiabike04.jpg', 'Asiabike05.jpg', 'Asiabike06.jpg', 'Asiabike07.jpg', 'Asiabike08.jpg', 'Asiabike09.jpg', 'Asiabike10.jpg', 'Asiabike11.jpg', 'Asiabike12.jpg']
-    },
+    }, 
     "csi": {
-        title: 'Cyber Sec Indonesia',
-        category: 'EXHIBITION PROJECT',
-        cover: 'assets/images/Csi.jpg',
-        processFolder: 'assets/images/projects/csi/',
+        title: "CyberSecIndonesia",
+        category: "EXHIBITION PROJECT",
+        cover: "assets/images/Csi.jpg",
+        processFolder: "assets/images/projects/csi/",
         process: ['Csi01.jpg', 'Csi02.jpg', 'Csi03.jpg', 'Csi04.jpg', 'Csi05.jpg', 'Csi06.jpg', 'Csi07.jpg', 'Csi08.jpg', 'Csi09.jpg', 'Csi10.jpg', 'Csi11.jpg', 'Csi12.jpg', 'Csi13.jpg']
     }
 };
@@ -214,24 +214,13 @@ function probeImage(path) {
     });
 }
 
-async function findProcessImage(index) {
-    const extensions = ["jpg", "jpeg", "png", "webp"];
+async function findProcessImage(filename) {
+    // Gunakan nama foto yang sudah ada; nama file foto tidak perlu diubah.
+    if (!filename || !project || !project.processFolder) {
+        return null;
+    }
 
-    const candidates = extensions.map(function(extension) {
-        return (
-            project.processFolder +
-            "process-" +
-            index +
-            "." +
-            extension
-        );
-    });
-
-    const results = await Promise.all(
-        candidates.map(probeImage)
-    );
-
-    return results.find(Boolean) || null;
+    return await probeImage(project.processFolder + filename);
 }
 
 async function loadProcessPhotos() {
@@ -245,13 +234,11 @@ async function loadProcessPhotos() {
         emptyEl.hidden = true;
     }
 
+    const filenames = (project.process || []).slice(0, PROCESS_PHOTO_LIMIT);
     const paths = await Promise.all(
-        Array.from(
-            { length: PROCESS_PHOTO_LIMIT },
-            function(_, i) {
-                return findProcessImage(i + 1);
-            }
-        )
+        filenames.map(function(filename) {
+            return findProcessImage(filename);
+        })
     );
 
     const processImages = paths
