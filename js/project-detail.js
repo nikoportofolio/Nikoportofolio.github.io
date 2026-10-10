@@ -54,6 +54,12 @@ const projects = {
         category: "EXHIBITION PROJECT",
         cover: "assets/images/Asiabike.jpg",
         processFolder: "assets/images/projects/asiabike/"
+    }, 
+    "csi": {
+        title: "CyberSecIndonesia",
+        category: "EXHIBITION PROJECT",
+        cover: "assets/images/Csi.jpg",
+        processFolder: "assets/images/projects/csi/"
     }
 };
 
