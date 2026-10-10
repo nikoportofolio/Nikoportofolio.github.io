@@ -962,8 +962,11 @@ navLinks.forEach(
         "ALLPack Indonesia": "allpack",
         "Plastics & Rubber Indonesia": "plastics-rubber",
         "Manufacturing Indonesia": "manufacturing",
+        "BigBang Festival": "bigbang",
         "BigBang 2025-2026": "bigbang",
-        "Uni-Global Retail Exhibition": "uni-global"
+        "Uni-Global Retail Exhibition": "uni-global",
+        "Asia Bike": "asiabike",
+        "Cyber Sec Indonesia": "csi"
     };
 
     projectCards.forEach(function(card) {
